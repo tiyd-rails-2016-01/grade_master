@@ -7,7 +7,7 @@ class AuthenticationsController < ApplicationController
     # render text: request.env['omniauth.auth'].to_yaml
     if params[:email]
       user = User.find_by(email: params[:email])
-      user_auth = user.authenticate(params[:password])
+      user_auth = user && user.authenticate(params[:password])
     else
       auth = request.env["omniauth.auth"]
       user = User.find_by(github_user_name: auth[:info]["nickname"])
