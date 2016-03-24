@@ -11,15 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308202033) do
+ActiveRecord::Schema.define(version: 20160324172533) do
 
   create_table "assignment_grades", force: :cascade do |t|
     t.string   "grade"
     t.string   "assignment_name"
     t.date     "assignment_date"
     t.integer  "student_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "uploaded_file_file_name"
+    t.string   "uploaded_file_content_type"
+    t.integer  "uploaded_file_file_size"
+    t.datetime "uploaded_file_updated_at"
   end
 
   create_table "parents", force: :cascade do |t|
