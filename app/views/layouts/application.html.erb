@@ -7,8 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+
+
+  <div class="device-background">
+    <div class="device-text">
+    <h4>Hay<%= ", #{session[:person_type]}"  %></h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, recusandae? Deserunt repellendus.</p>
+    </div>
+    <div class="device">
+      <div class="screen"></div>
+    </div>
+  </div>
+
   <div class="container">
-    <%= link_to "Back to Dashboard", root_path if session[:user_id] %>
+
     <p id="notice"><%= notice %></p>
 
 
@@ -17,9 +30,49 @@
     <br>
     <br>
     <br>
-    <%= link_to "Logout", logout_path, method: :delete if session[:user_id] %>
-    <%= link_to "Login", login_path if !session[:user_id] %>
+
+
+
+
   </div>
+
+
+
+  <!--<div class="wrapper-for-content-outside-of-footer">
+     Uncomment this whole section for a sticky footer. The content of the page should be inside of this .wrapper-for-content-outside-of-footer
+  </div>-->
+
+  <footer class="footer-2" role="contentinfo">
+    <div class="footer-logo">
+      <img src="http://www.showmyiq.com/2012/November/tumblr_lnnj38hjbo1qccjaxo1_400.png" alt="Logo image">
+    </div>
+      <ul>
+        <li><%= link_to "Back to Dashboard", root_path if session[:user_id] %></li>
+
+      </ul>
+
+      <div class="footer-secondary-links">
+        <ul>
+          <li><%= link_to "Logout", logout_path, method: :delete if session[:user_id] %></li>
+          <li><%= link_to "Login", login_path if !session[:user_id] %></li>
+        </ul>
+
+        <ul class="footer-social">
+          <li><a href="javascript:void(0)">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/facebook-logo-circle.png" alt="Facebook">
+            </a></li>
+          <li><a href="javascript:void(0)">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/twitter-logo-circle.png" alt="Twitter">
+          </a></li>
+          <li><a href="javascript:void(0)">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/youtube-logo-circle.png" alt="YouTube">
+          </a></li>
+        </ul>
+      </div>
+  </footer>
+
+
+
 
 </body>
 </html>

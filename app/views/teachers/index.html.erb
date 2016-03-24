@@ -10,18 +10,25 @@
   </thead>
 
   <tbody>
-    <% @teachers.each do |teacher| %>
-      <tr>
-        <td><%= teacher.first_name %></td>
-        <td><%= teacher.last_name %></td>
-        <td><%= link_to 'Show', teacher %></td>
-        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Teacher', new_teacher_path %>
+  <div class="vertical-tabs-container">
+    <div class="vertical-tabs">
+      <% @teachers.each_with_index do |teacher, i| %>
+        <a href="javascript:void(0)" class="js-vertical-tab vertical-tab is-active" rel="tab<%=i%>"><%= teacher.first_name %><%= teacher.last_name %> </a>
+      <% end %>
+    </div>
+
+    <div class="vertical-tab-content-container">
+      <% @teachers.each_with_index do |teacher, i| %>
+        <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active"rel="tab<%=i%>">Item 1</a>
+        <div id="tab<%=i%>" class="js-vertical-tab-content vertical-tab-content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt pellentesque lorem, id suscipit dolor rutrum id. Morbi facilisis porta volutpat. Fusce adipiscing, mauris quis congue tincidunt, sapien purus suscipit odio, quis dictum odio tortor in sem. Ut sit amet libero nec orci mattis fringilla. Praesent eu ipsum in sapien tincidunt molestie sed ut magna. Nam accumsan dui at orci rhoncus pharetra tincidunt elit ullamcorper. Sed ac mauris ipsum. Nullam imperdiet sapien id purus pretium id aliquam mi ullamcorper.</p>
+          <%= link_to 'Show', teacher %>
+          <%= link_to 'Edit', edit_teacher_path(teacher) %>
+          <%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to 'New Teacher', new_teacher_path %>

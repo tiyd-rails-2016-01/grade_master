@@ -1,12 +1,70 @@
-<h1>Hay<%= ", #{session[:person_type]}"  %></h1>
-<p></p>
 
 <% if session[:person_type] == "Teacher" %>
-  <%= link_to "Manage Users", users_path %><br>
-  <%= link_to "Manage Teachers", teachers_path %><br>
-  <%= link_to "Manage Students", students_path %><br>
-  <%= link_to "Manage Parents", parents_path %><br>
-  <%= link_to "Manage Grades", grades_path %><br>
+<div class="cards">
+  <%= link_to users_path do %>
+    <div class="card">
+      <div class="card-image">
+      <%= image_tag("/male-teacher-cartoon.jpg") %>
+      </div>
+      <div class="card-header">
+        <h4><%= link_to "Manage Users", users_path %></h4>
+      </div>
+      <div class="card-copy">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="card">
+    <div class="card-image">
+      <%= image_tag("/male-teacher-cartoon.jpg") %>
+    </div>
+    <div class="card-header">
+      <h4><%= link_to "Manage Teachers", teachers_path %></h4>
+    </div>
+    <div class="card-copy">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-image">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-3.png" alt="">
+    </div>
+    <div class="card-header">
+      <h4><%= link_to "Manage Students", students_path %></h4>
+    </div>
+    <div class="card-copy">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="card-image">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png" alt="">
+    </div>
+    <div class="card-header">
+      <h4><%= link_to "Manage Parents", parents_path %></h4>
+    </div>
+    <div class="card-copy">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-image">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-4.png" alt="">
+    </div>
+    <div class="card-header">
+      <h4><%= link_to "Manage Grades", grades_path %></h4>
+    </div>
+    <div class="card-copy">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
+    </div>
+  </div>
+</div>
+
 <% elsif session[:user_id] %>
   <%= link_to "View Grades", grades_path %><br>
 <% end %>
