@@ -24,13 +24,20 @@
     <%= f.collection_select :teacher_id, Teacher.all, :id, :first_name, :prompt => "Select Teacher..." %>
   </div>
 
-  <%= f.fields_for :achievements do |ff| %>
-    <% @achievements_list.each do |a| %>
-      <div class="field">
-        <%= ff.check_box :a, {:multiple => true}, "a.name", nil %>
-      </div>
-    <% end %>
 
+  <% student_list = @student.achievements.pluck(:name) %>
+
+  <% @achievements_list.each do |a| %>
+
+      <div class="field">
+        <%= label_tag a.name %>
+        <% if student_list.include?(a.name) %>
+        <%= check_box "achievements", a.id, {checked: true}  %>
+        <% else %>
+        <%= check_box "achievements", a.id, {checked: false}  %>
+        <% end %>
+
+      </div>
 
   <% end %>
 

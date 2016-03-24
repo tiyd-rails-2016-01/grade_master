@@ -42,6 +42,13 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
+    achievements = params[:achievements]
+    achievements.each do |a|
+      new_achievement = Achievement.find(a[0].to_i)
+      if a[1] == "1" && !@student.achievements.pluck(:name).include?(new_achievement.name)
+        @student.achievements << new_achievement
+      end
+    end
     respond_to do |format|
       if @student.update(student_params)
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }
@@ -71,6 +78,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:first_name, :last_name, :teacher_id)
+      params.require(:student).permit(:first_name, :last_name, :teacher_id, :achievements)
     end
 end
