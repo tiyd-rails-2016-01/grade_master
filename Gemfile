@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
+ruby '2.3.0'
 
 
+gem 'puma'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -38,6 +38,8 @@ gem 'autoprefixer-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
 
 group :development do
@@ -48,4 +50,11 @@ group :development do
   gem 'spring'
 
   gem 'rails-footnotes', '~> 4.0'
+end
+
+group :production do
+  #You'll need postgress eventually.
+  gem 'pg'
+
+  gem 'rails_12factor'
 end
