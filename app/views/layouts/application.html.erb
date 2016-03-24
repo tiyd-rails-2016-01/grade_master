@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HW030816</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <%= link_to "Back to Dashboard", root_path if session[:user_id] %>
+    <p id="notice"><%= notice %></p>
+
+
+    <%= yield %>
+
+    <br>
+    <br>
+    <br>
+    <%= link_to "Logout", logout_path, method: :delete if session[:user_id] %>
+    <%= link_to "Login", login_path if !session[:user_id] %>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<p>
+  <strong>Student First Name:</strong>
+  <%= @student.first_name %>
+</p>
+<p>
+  <strong>Student Last Name:</strong>
+  <%= @student.last_name %>
+</p>
+<p>
+  <strong>Student's Teacher:</strong>
+  <%= "#{@student.teacher.first_name} #{@student.teacher.last_name}" if @student.teacher%>
+</p>
+
+
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>

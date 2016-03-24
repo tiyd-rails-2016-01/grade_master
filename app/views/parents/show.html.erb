@@ -1,0 +1,16 @@
+<p>
+  <strong>Parent First Name:</strong>
+  <%= @parent.first_name %>
+</p>
+<p>
+  <strong>Parent Last Name:</strong>
+  <%= @parent.last_name %>
+</p>
+<p>
+  <strong>Parent's Student:</strong>
+  <%= "#{@parent.student.first_name} #{@parent.student.last_name}" if @parent.student%>
+</p>
+
+
+<%= link_to 'Edit', edit_parent_path(@parent) %> |
+<%= link_to 'Back', parents_path %>
