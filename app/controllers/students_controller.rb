@@ -47,6 +47,8 @@ class StudentsController < ApplicationController
       new_achievement = Achievement.find(a[0].to_i)
       if a[1] == "1" && !@student.achievements.pluck(:name).include?(new_achievement.name)
         @student.achievements << new_achievement
+      elsif a[1] == "0" && @student.achievements.pluck(:name).include?(new_achievement.name)
+        @student.achievements.delete(new_achievement)
       end
     end
     respond_to do |format|
@@ -78,6 +80,7 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:first_name, :last_name, :teacher_id, :achievements)
+      params.require(:student).permit(:first_name, :last_name, :teacher_id,
+      :achievements)
     end
 end
