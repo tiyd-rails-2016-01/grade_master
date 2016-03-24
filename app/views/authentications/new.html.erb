@@ -1,4 +1,4 @@
-<%= link_to "Sign in with Github", "/auth/github" %>
+
 
 
 <h1>Please Login:</h1>
@@ -7,3 +7,5 @@
   <%= password_field_tag 'password', nil, placeholder: "Password" %>
   <%= submit_tag(value="Login") %>
 <% end %>
+<h1>OR</h1>
+<%= link_to "Sign in with Github", "/auth/github" %>
