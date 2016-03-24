@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308202033) do
+ActiveRecord::Schema.define(version: 20160324190408) do
 
   create_table "assignment_grades", force: :cascade do |t|
     t.string   "grade"
@@ -48,10 +48,11 @@ ActiveRecord::Schema.define(version: 20160308202033) do
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "person_id"
     t.string   "person_type"
+    t.string   "github_user_name"
   end
 
 end

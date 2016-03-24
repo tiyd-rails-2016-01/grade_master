@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'grades' => 'assignment_grades#index'
 
+  get "/auth/:provider/callback" => "authentications#create"
+
   resources :authentications
   resources :assignment_grades
   resources :students
