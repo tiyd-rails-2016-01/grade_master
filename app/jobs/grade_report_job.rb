@@ -5,7 +5,7 @@ class GradeReportJob < ActiveJob::Base
 
   def perform(*args)
     parent = Parent.find(args[0])
-    grades = parent.assignment_grades.where("created_at > ?", 1.week.ago) if parent.assignment_grades && parent.assignment_grades.length > 1
+    grades = parent.student.assignment_grades.where("created_at > ?", 1.week.ago) if parent.student
     file_path = Rails.root.join("tmp", "grades_report_#{Date.today}.csv")
     CSV.open(file_path, "w") do |csv|
       if grades
