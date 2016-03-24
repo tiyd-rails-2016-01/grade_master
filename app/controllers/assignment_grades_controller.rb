@@ -73,9 +73,9 @@ class AssignmentGradesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_grade_params
-      params.require(:assignment_grade).permit(:grade, :assignment_name, :assignment_date, :student_id)
+      params.require(:assignment_grade).permit(:grade, :assignment_name, :assignment_date, :student_id, :uploaded_file)
     end
-    ​
+
     def find_grades
       if session[:person_type] == "Teacher"
         AssignmentGrade.all
