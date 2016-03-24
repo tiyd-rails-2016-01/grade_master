@@ -14,9 +14,9 @@ parent = Parent.create(first_name: "Dan", last_name: "Leveigh", student_id: 2)
 student = Student.create(first_name: "Anjana", last_name: "Smith", teacher_id: 3)
 teacher = Teacher.create(first_name: "Ricky", last_name: "Ricardo")
 parent = Parent.create(first_name: "Molly", last_name: "Ringworm", student_id: 3)
-assignment_grade = AssignmentGrade.create(grade: "56", assignment_name: "Ruby on Rails", assignment_date: 2016-03-01, student_id: 2)
-assignment_grade = AssignmentGrade.create(grade: "99", assignment_name: "Mini Boat Sailing", assignment_date: 2016-02-01, student_id: 1)
-assignment_grade = AssignmentGrade.create(grade: "86", assignment_name: "Epidemiology", assignment_date: 2016-01-01, student_id: 3)
+assignment_grade = AssignmentGrade.create(grade: 56, assignment_name: "Ruby on Rails", assignment_date: 2016-03-01, student_id: 2)
+assignment_grade = AssignmentGrade.create(grade: 99, assignment_name: "Mini Boat Sailing", assignment_date: 2016-02-01, student_id: 1)
+assignment_grade = AssignmentGrade.create(grade: 86, assignment_name: "Epidemiology", assignment_date: 2016-01-01, student_id: 3)
 
 
 

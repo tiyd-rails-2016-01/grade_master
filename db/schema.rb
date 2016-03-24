@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308202033) do
+ActiveRecord::Schema.define(version: 20160324203238) do
 
   create_table "assignment_grades", force: :cascade do |t|
-    t.string   "grade"
+    t.float    "grade"
     t.string   "assignment_name"
     t.date     "assignment_date"
     t.integer  "student_id"

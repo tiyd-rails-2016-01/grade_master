@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  grade: MyString
-  assignment_name: MyString
+  grade: 89
+  assignment_name: economics
   assignment_date: 2016-03-08
   student_id: 1
 
 two:
-  grade: MyString
-  assignment_name: MyString
-  assignment_date: 2016-03-08
+  grade: 79
+  assignment_name: snail etymology
+  assignment_date: 2015-03-08
   student_id: 1
