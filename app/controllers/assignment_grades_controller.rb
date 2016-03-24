@@ -6,7 +6,6 @@ class AssignmentGradesController < ApplicationController
   # GET /assignment_grades.json
   def index
     @assignment_grades = find_grades
-    AssignmentGrade.send_reports
   end
 
   # GET /assignment_grades/1
