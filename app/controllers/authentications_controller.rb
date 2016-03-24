@@ -4,12 +4,14 @@ class AuthenticationsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
+    # render text: request.env['omniauth.auth'].to_yaml
+    auth = request.env["omniauth.auth"]
+    user = User.find_by(github_user_name: auth[:info]["nickname"])
+    if user
       session[:user_id] = user.id
       session[:person_id] = user.person_id
       session[:person_type] = user.person_type
-      redirect_to root_path, notice: "You have logged in."
+      redirect_to root_url, :notice => "Signed in!"
     else
       flash.now[:notice] = "You need to log in before you can do anything!"
       render "new"

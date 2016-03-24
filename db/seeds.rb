@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 teacher = Teacher.create(first_name: "Admin", last_name: "Teacher")
-User.create(email: 'admin@example.com', password: 'password', person_id: teacher.id, person_type: "Teacher")
+User.create(email: 'admin@example.com', github_user_name: 'byarsawich', person_id: teacher.id, person_type: "Teacher")
