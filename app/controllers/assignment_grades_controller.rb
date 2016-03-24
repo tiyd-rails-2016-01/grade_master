@@ -5,6 +5,7 @@ class AssignmentGradesController < ApplicationController
   # GET /assignment_grades
   # GET /assignment_grades.json
   def index
+    # @assignment_grades = nil
     @assignment_grades = find_grades
   end
 
@@ -75,14 +76,14 @@ class AssignmentGradesController < ApplicationController
     def assignment_grade_params
       params.require(:assignment_grade).permit(:grade, :assignment_name, :assignment_date, :student_id)
     end
-    ​
+    
     def find_grades
       if session[:person_type] == "Teacher"
-        AssignmentGrade.all
+        return AssignmentGrade.all
       elsif session[:person_type] == "Student"
-        Student.find(session[:person_id]).assignment_grades
+        return Student.find(session[:person_id]).assignment_grades
       else
-        Parent.find(session[:person_id]).assignment_grades
+        return Parent.find(session[:person_id]).assignment_grades
       end
     end
 end
