@@ -5,9 +5,15 @@ class AuthenticationsController < ApplicationController
 
   def create
     # render text: request.env['omniauth.auth'].to_yaml
-    auth = request.env["omniauth.auth"]
-    user = User.find_by(github_user_name: auth[:info]["nickname"])
-    if user
+    if params[:email]
+      user = User.find_by(email: params[:email])
+      user_auth = user.authenticate(params[:password])
+    else
+      auth = request.env["omniauth.auth"]
+      user = User.find_by(github_user_name: auth[:info]["nickname"])
+      user_auth = true
+    end
+    if user && user_auth
       session[:user_id] = user.id
       session[:person_id] = user.person_id
       session[:person_type] = user.person_type

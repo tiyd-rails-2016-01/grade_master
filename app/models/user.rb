@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_secure_password
   belongs_to :person, polymorphic: true
 
   def global_owner
