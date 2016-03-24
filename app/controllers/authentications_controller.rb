@@ -15,7 +15,6 @@ class AuthenticationsController < ApplicationController
     end
     if user && user_auth
       session[:user_id] = user.id
-      session[:person_id] = user.person_id
       session[:person_type] = user.person_type
       redirect_to root_url, :notice => "Signed in!"
     else
@@ -26,7 +25,6 @@ class AuthenticationsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    session[:person_id] = nil
     session[:person_type] = nil
     redirect_to login_path, notice: "Great session, bro."
   end

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if session[:person_type] == "Teacher"
       @users = User.all
     else
-      @users = User.where(id: session[:user_id])
+      @users = User.where(user_id: session[:user_id])
     end
   end
 

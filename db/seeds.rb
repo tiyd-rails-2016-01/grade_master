@@ -32,3 +32,6 @@ User.create(email: '@example.com', password: 'monkey', github_user_name: '', per
 
 teacher = Teacher.create(first_name: "user", last_name: "user")
 User.create(email: 'damianhouse@example.com', password: 'monkey', github_user_name: 'damianhouse', person_id: teacher.id, person_type: "Teacher")
+
+student = Student.create(first_name: "user", last_name: "user")
+User.create(email: 'test@test.com', password: 'monkey', person_id: student.id, person_type: "Student")
