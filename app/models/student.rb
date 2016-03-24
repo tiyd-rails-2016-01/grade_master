@@ -7,6 +7,8 @@ class Student < ActiveRecord::Base
   has_many :student_achievements
   has_many :achievements, through: :student_achievements
 
+  accepts_nested_attributes_for :achievements, allow_destroy: true
+
   validates :first_name, presence: true
 
 end

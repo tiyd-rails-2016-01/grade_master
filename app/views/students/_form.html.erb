@@ -23,6 +23,17 @@
     <%= f.label :teacher %><br>
     <%= f.collection_select :teacher_id, Teacher.all, :id, :first_name, :prompt => "Select Teacher..." %>
   </div>
+
+  <%= f.fields_for :achievements do |ff| %>
+    <% @achievements_list.each do |a| %>
+      <div class="field">
+        <%= ff.check_box :a, {:multiple => true}, "a.name", nil %>
+      </div>
+    <% end %>
+
+
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

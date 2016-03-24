@@ -20,6 +20,7 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+    @achievements_list = Achievement.all
   end
 
   # POST /students
