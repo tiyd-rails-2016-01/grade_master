@@ -6,7 +6,7 @@ class AssignmentGradesController < ApplicationController
   # GET /assignment_grades.json
   def index
     @assignment_grades = find_grades
-    GradeReportJob.perform_later(@parent.id) if @parent
+    AssignmentGrade.send_reports
   end
 
   # GET /assignment_grades/1

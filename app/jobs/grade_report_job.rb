@@ -17,6 +17,6 @@ class GradeReportJob < ActiveJob::Base
         csv << ["No Grades"]
       end
     end
-    WeeklyUpdate.grade_report("katestudwell@gmail.com", file_path).deliver_now
+    WeeklyUpdate.grade_report("#{parent.users.first.email}", file_path, parent.id).deliver_now if parent.student
   end
 end
