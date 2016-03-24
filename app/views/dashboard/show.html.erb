@@ -7,6 +7,8 @@
   <%= link_to "Manage Students", students_path %><br>
   <%= link_to "Manage Parents", parents_path %><br>
   <%= link_to "Manage Grades", grades_path %><br>
-<% elsif session[:user_id] %>
+<% elsif session[:person_type] == "Principal" %>
+  <%= link_to "Good morning, Supernintendo Chalmers", principals_path %>
+<% else session[:user_id] %>
   <%= link_to "View Grades", grades_path %><br>
 <% end %>
