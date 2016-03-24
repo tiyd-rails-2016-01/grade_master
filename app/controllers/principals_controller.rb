@@ -1,10 +1,15 @@
 class PrincipalsController < ApplicationController
-  before_action :set_principal, only: [:show, :edit, :update, :destroy]
+  before_action :set_principal, only: :show
+  before_action :authenticate_principal
 
   # GET /principals
   # GET /principals.json
   def index
     @principals = Principal.all
+    @teachers = Teacher.all
+    @students = Student.all
+    @parents = Parent.all
+    @assignment_grades = Assignment_grades.all 
   end
 
   # GET /principals/1
@@ -13,11 +18,10 @@ class PrincipalsController < ApplicationController
   end
 
   # GET /principals/new
-  
+
 
   # GET /principals/1/edit
-  def edit
-  end
+
 
   # POST /principals
   # POST /principals.json

@@ -75,7 +75,7 @@ class AssignmentGradesController < ApplicationController
     def assignment_grade_params
       params.require(:assignment_grade).permit(:grade, :assignment_name, :assignment_date, :student_id)
     end
-    ​
+    
     def find_grades
       if session[:person_type] == "Teacher"
         AssignmentGrade.all
