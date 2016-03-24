@@ -9,7 +9,7 @@ class PrincipalsController < ApplicationController
     @teachers = Teacher.all
     @students = Student.all
     @parents = Parent.all
-    @assignment_grades = Assignment_grades.all 
+    # @assignment_grades = Assignment_grade.all
   end
 
   # GET /principals/1
