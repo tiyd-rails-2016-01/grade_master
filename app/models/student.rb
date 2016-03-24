@@ -4,6 +4,9 @@ class Student < ActiveRecord::Base
   has_many :assignment_grades
   has_many :users, as: :person
 
+  has_many :student_achievements
+  has_many :achievements, through: :student_achievements
+
   validates :first_name, presence: true
 
 end
