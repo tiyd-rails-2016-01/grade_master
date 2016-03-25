@@ -305,3 +305,462 @@ h1 {
     }
   }
 }
+
+.vertical-tabs-container {
+  $base-border-color: gainsboro !default;
+  $base-border-radius: 3px !default;
+  $base-background-color: white !default;
+  $base-line-height: 1.5em !default;
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $dark-gray: #333 !default;
+  $medium-screen: em(640) !default;
+  $base-font-color: $dark-gray !default;
+  $tab-border-color: $base-border-color;
+  $tab-border: 1px solid $tab-border-color;
+  $tab-border-radius: $base-border-radius;
+  $tab-content-background: lighten($tab-border-color, 10%);
+  $tab-active-color: $tab-content-background;
+  $tab-inactive-color: $base-background-color;
+  $vertical-tabs-height: em(300);
+  $vertical-tab-mode: $medium-screen;
+
+  @include clearfix;
+  border-radius: $tab-border-radius;
+  border: $tab-border;
+  margin-bottom: $base-spacing;
+  overflow: hidden;
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    color: $action-color;
+    text-decoration: none;
+  }
+
+  .vertical-tabs {
+    display: none;
+
+    @include media($vertical-tab-mode) {
+      background-color: $tab-inactive-color;
+      display: inline;
+      float: left;
+      height: $vertical-tabs-height;
+      width: 20%;
+    }
+  }
+
+  .vertical-tab {
+    @include media($vertical-tab-mode) {
+      border-bottom: $tab-border;
+      display: block;
+      font-weight: bold;
+      margin-right: -1px;
+      padding: ($base-spacing / 2) ($gutter / 2);
+
+      &.is-active {
+        background-color: $tab-content-background;
+        margin-right: -1px;
+      }
+    }
+  }
+
+  a.vertical-tab-accordion-heading,
+  a.vertical-tab {
+    color: $dark-gray;
+  }
+
+  .vertical-tab:focus {
+    outline: none;
+  }
+
+  .vertical-tab-content-container {
+    display: block;
+    margin: 0 auto;
+
+    & a:focus {
+      outline: none;
+    }
+
+    @include media($vertical-tab-mode) {
+      @include size(80% $vertical-tabs-height);
+      background-color: $tab-content-background;
+      display: inline-block;
+    }
+  }
+
+  .vertical-tab-content {
+    background-color: $tab-content-background;
+    padding: $base-spacing $gutter;
+
+    p {
+      color: $base-font-color;
+      line-height: $base-line-height;
+    }
+
+    @include media($vertical-tab-mode) {
+      border: none;
+      display: none;
+    }
+  }
+
+  .vertical-tab-accordion-heading {
+    background-color: $tab-inactive-color;
+    border-top: $tab-border;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    padding: $base-spacing / 2 $gutter / 2;
+
+    &:focus,
+    &:hover {
+      color: $action-color;
+    }
+
+    &:first-child {
+      border-top: none;
+    }
+
+    &.is-active {
+      background: $tab-active-color;
+      border-bottom: none;
+    }
+
+    @include media($vertical-tab-mode) {
+      display: none;
+    }
+  }
+}
+
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+html{    background:url(http://hdwallpapershoot.com/wp-content/uploads/2015/05/Solid-Backgrounds-1.jpg) no-repeat;
+  background-size: cover;
+  height:100%;
+}
+
+#feedback-page{
+	text-align:center;
+}
+
+#form-main{
+	width:100%;
+
+	float:left;
+	padding-top:0px;
+}
+
+#form-div {
+	background-color:rgba(72,72,72,0.4);
+	padding-left:35px;
+	padding-right:35px;
+	padding-top:35px;
+	padding-bottom:50px;
+	width: 450px;
+	float: left;
+	left: 50%;
+	position: relative;
+  margin-top:5px;
+	margin-left: -260px;
+  margin-bottom: 7%;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+.feedback-input {
+	color:#3c3c3c;
+	font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+	font-size: 18px;
+	border-radius: 0;
+	line-height: 22px;
+	background-color: #fbfbfb;
+	padding: 13px 13px 13px 54px;
+	margin-bottom: 10px;
+	width:100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+  border: 3px solid rgba(0,0,0,0);
+}
+
+.feedback-input:focus{
+	background: #fff;
+	box-shadow: 0;
+	border: 3px solid #3498db;
+	color: #3498db;
+	outline: none;
+  padding: 13px 13px 13px 54px;
+}
+
+.focused{
+	color:#30aed6;
+	border:#30aed6 solid 3px;
+}
+
+/* Icons ---------------------------------- */
+#name{
+	background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#name:focus{
+	background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+	background-size: 30px 30px;
+	background-position: 8px 5px;
+  background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#email{
+	background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#email:focus{
+	background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+	background-size: 30px 30px;
+  background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#comment{
+	background-image: url(http://rexkirby.com/kirbyandson/images/comment.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    line-height: 150%;
+    resize:vertical;
+}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+	background-color:white;
+}
+
+#button-blue{
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	float:left;
+	width: 100%;
+	border: #fbfbfb solid 4px;
+	cursor:pointer;
+	background-color: #3498db;
+	color:white;
+	font-size:24px;
+	padding-top:22px;
+	padding-bottom:22px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+  margin-top:-4px;
+  margin-bottom: 20px;
+  font-weight:700;
+}
+
+#button-blue:hover{
+	background-color: rgba(0,0,0,0);
+	color: #0493bd;
+}
+
+.submit:hover {
+	color: #3498db;
+}
+
+.ease {
+	width: 0px;
+	height: 74px;
+	background-color: #fbfbfb;
+	-webkit-transition: .3s ease;
+	-moz-transition: .3s ease;
+	-o-transition: .3s ease;
+	-ms-transition: .3s ease;
+	transition: .3s ease;
+}
+
+.submit:hover .ease{
+  width:100%;
+  background-color:white;
+}
+
+@media only screen and (max-width: 580px) {
+	#form-div{
+		left: 3%;
+		margin-right: 3%;
+		width: 88%;
+		margin-left: 0;
+		padding-left: 3%;
+		padding-right: 3%;
+	}
+}
+
+.Three-Dee{
+text-align: center;
+font-family: Bangers ;
+line-height: 1em;
+color: brown;
+font-size: 50px;
+text-shadow:0px 0px 0 rgb(231,231,231),1px 1px 0 rgb(216,216,216),2px 2px 0 rgb(202,202,202),3px 3px 0 rgb(187,187,187),4px 4px 0 rgb(173,173,173),5px 5px 0 rgb(158,158,158), 6px 6px 0 rgb(144,144,144),7px 7px 6px rgba(0,0,0,0.6),7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);}
+
+
+.Three-Dee-Container{
+  padding-left:5px;
+  padding-right:5px;
+  padding-top:5px;
+  padding-bottom:5px;
+  width: 450px;
+  float: left;
+  left: 50%;
+  position: relative;
+  margin-top:5px;
+  margin-left: -260px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+.git-link {
+  text-align: center;
+  margin-top: 20px;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+.git-image {
+  width:30%;
+  height:30%;
+}
+
+.tables {
+  $base-border-color: gainsboro !default;
+  $base-border-radius: 3px !default;
+  $base-line-height: 1.5em !default;
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $dark-gray: #333 !default;
+  $light-gray: #DDD !default;
+  $medium-screen: em(640) !default;
+  $large-screen: em(860) !default;
+  $base-font-color: $dark-gray !default;
+  $table-border-color: $base-border-color;
+  $table-border: 0px solid $table-border-color;
+  $table-background: lighten($table-border-color, 12%);
+  $table-header-background: lighten($table-background, 10%);
+  $table-hover-background: darken($table-background, 20%);
+  $table-stripe-background: darken($table-background, 2%);
+  $table-stripe-background-hover: darken($table-stripe-background, 5%);
+  $table-padding: 0.75em 1em;
+
+  border-collapse: separate;
+  border-left: 0px;
+  border-radius: $base-border-radius;
+  border-spacing: 0;
+  border: $table-border;
+  width: 40%;
+  margin: 0 auto;
+
+  tbody {
+    background-color: $table-background;
+
+    tr:hover > td, tr:hover > th {
+      background-color: $table-hover-background;
+    }
+    tr:nth-child(even) {
+      background-color: $table-stripe-background;
+      &:hover > td {
+        background-color: $table-stripe-background-hover;
+      }
+    }
+  }
+
+  thead:first-of-type {
+    tr:first-child > th:first-child {
+      border-top-left-radius: $base-border-radius;
+    }
+
+    tr:first-child > th:last-child {
+      border-top-right-radius: $base-border-radius;
+    }
+  }
+
+  tbody:last-child {
+    tr:last-child > td:first-child {
+      border-bottom-left-radius: $base-border-radius;
+    }
+
+    tr:last-child > td:last-child {
+      border-bottom-right-radius: $base-border-radius;
+    }
+  }
+
+  thead {
+    th {
+      background-color: $table-header-background;
+      border-bottom: 0px;
+      border-left: 1px solid $table-border-color;
+      padding: $table-padding;
+      text-align: left;
+
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+
+  tbody {
+    background-color: $table-background;
+
+    td {
+      border-bottom: 0px;
+      border-left: 1px solid $table-border-color;
+      border-top: 1px solid $table-border-color;
+      padding: $table-padding;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      button {
+        display: inline-block;
+        font-size: 0.7em;
+        line-height: $base-line-height;
+        margin-bottom: 0.3em;
+        margin-right: 0.5em;
+        outline: none;
+        padding: 0.3em 1em;
+        width: 100%;
+
+        @include media($medium-screen) {
+          margin-bottom: 0;
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+.table-name {
+  text-align: center;
+  font-family: Bangers ;
+  line-height: 1em;
+  color: #46525f;
+  font-size: 50px;
+  text-shadow:0px 0px 0 rgb(231,231,231),1px 1px 0 rgb(216,216,216),2px 2px 0 rgb(202,202,202),3px 3px 0 rgb(187,187,187),4px 4px 0 rgb(173,173,173),5px 5px 0 rgb(158,158,158), 6px 6px 0 rgb(144,144,144),7px 7px 6px rgba(0,0,0,0.6),7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);}
+
+.add-new {
+  text-align: center;
+}
+
+.add-user-button {
+  @include button(pill, #46525f);
+}
