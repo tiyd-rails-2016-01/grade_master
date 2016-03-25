@@ -8,6 +8,18 @@
   <%= link_to "Manage Parents", parents_path %><br>
   <%= link_to "Manage Grades", grades_path %><br>
   <%= link_to "Manage Achievements", achievements_path %><br>
-<% elsif session[:user_id] %>
+<% elsif session[:person_type] == "Principal" %>
+  <%= link_to "Click here for stats", principals_path %>
+  <h3>Total Number of Teachers = <%= Principal.number_of_teachers %></h3>
+  <h3>Total Number of Students = <%= Principal.number_of_students %></h3>
+  <h3>Classroom Ratio =
+    <% if "#{Principal.number_of_teachers}" != 1 %>
+      <%= "#{Principal.number_of_teachers / Principal.number_of_teachers} : #{Principal.number_of_students.to_f / Principal.number_of_teachers}" %>
+    <% else %>
+      <%= "#{Principal.number_of_teachers} : #{Principal.number_of_students}" %>
+    <% end %>
+  </h3>
+  <h3>Number of Assignments Completed This Year = <%= "#{Principal.completed_assignments}" %> </h3>
+<% else %>
   <%= link_to "View Grades", grades_path %><br>
 <% end %>

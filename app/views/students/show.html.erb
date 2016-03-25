@@ -1,3 +1,39 @@
+<% if session[:person_type] == "Principal" %>
+  <strong>Student's Name:</strong>
+  <%= "#{@student.first_name} #{@student.last_name}" %>
+  <br>
+  <strong>Student's Parent(s):</strong>
+  <%= "#{@student.parents.first.first_name} #{@student.parents.first.last_name}" %>
+  <br>
+  <strong>Student's Grades:</strong>
+  <table>
+    <thead>
+      <tr>
+        <th>Grade  </th>
+        <th>Assignment name </th>
+        <th>Assignment date </th>
+        <th>Student </th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @student.assignment_grades.each do |assignment_grade| %>
+        <tr>
+          <td><%= assignment_grade.grade %></td>
+          <td><%= assignment_grade.assignment_name %></td>
+          <td><%= assignment_grade.assignment_date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+<% end %>
+
+
+
+<% if session[:person_type] == "Teacher" %>
 <p>
   <strong>Student First Name:</strong>
   <%= @student.first_name %>
@@ -10,12 +46,13 @@
   <strong>Student's Teacher:</strong>
   <%= "#{@student.teacher.first_name} #{@student.teacher.last_name}" if @student.teacher%>
 </p>
+
 <p>
   <strong>Student's Achievements:</strong>
   <%= "Total points: #{@student.total_achievements} | Grade equivalent: #{@student.achievement_grade}"%>
 </p>
 
-
-
-<%= link_to 'Edit', edit_student_path(@student) %> |
+<br>
+<%= link_to 'Edit', edit_student_path(@student) %>
 <%= link_to 'Back', students_path %>
+<% end %>

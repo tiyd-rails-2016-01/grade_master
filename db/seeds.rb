@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
 teacher = Teacher.create(first_name: "Brian", last_name: "Yarsawich")
 User.create(email: 'byarsawich@example.com', password: 'monkey', github_user_name: 'byarsawich', person_id: teacher.id, person_type: "Teacher")
 
