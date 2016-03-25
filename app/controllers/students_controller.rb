@@ -20,6 +20,7 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+    @student.assignment_grades.build
   end
 
   # POST /students
@@ -70,6 +71,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:first_name, :last_name, :teacher_id)
+      params.require(:student).permit(:first_name, :last_name, :teacher_id, assignment_grades_attributes: [:id, :grade, :assignment_name, :assignment_date, :student_id, :_destroy])
     end
 end
