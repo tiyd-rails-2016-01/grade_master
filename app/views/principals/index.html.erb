@@ -3,7 +3,7 @@
 <h1>Staff List</h1>
   <% @teachers.each do |t| %>
     <h3><%= t.first_name %> <%=  t.last_name %></h3>
-        <div id=“student”>  <% @students.each do |s| %>
+        <div id=“student”>  <% @students.where("teacher_id = ?", t.id).each do |s| %>
           <%= link_to "#{s.first_name} #{s.last_name}", student_path(s) %> <br>
         <% end %>
         </div>
