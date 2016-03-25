@@ -30,6 +30,10 @@ class Principal < ActiveRecord::Base
     @assignment_grade.count
   end
 
+  def self.display_assignment_name(student)
+    AssignmentGrade.find_by(student_id: student.id).assignment_name
+  end
+
 end
 
 
