@@ -25,7 +25,7 @@ class Student < ActiveRecord::Base
         return k
       end
     end
-    return "F"
+    return :F
   end
 
 end

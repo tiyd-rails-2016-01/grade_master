@@ -9,3 +9,13 @@ two:
   first_name: MyString
   last_name: MyString
   teacher_id: 1
+
+marcia:
+  first_name: "Marcia"
+  last_name: "Corprew"
+  teacher_id: 1
+
+anjana:
+  first_name: "Anjana"
+  last_name: "Mohanty"
+  teacher_id: 2

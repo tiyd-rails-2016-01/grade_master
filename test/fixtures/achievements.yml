@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  description: MyText
+  name: "One"
+  description: "The first!"
+  points: 400
 
 two:
-  name: MyString
-  description: MyText
+  name: "Two"
+  description: "The second!"
+  points: 200
