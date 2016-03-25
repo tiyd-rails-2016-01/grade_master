@@ -3,13 +3,32 @@
   <%= "#{@student.first_name} #{@student.last_name}" %>
   <br>
   <strong>Student's Parent(s):</strong>
-  <%= "#{Principal.display_parent_first(@student)} #{Principal.display_parent_last(@student)}" %>
+  <%= "#{@student.parents.first.first_name} #{@student.parents.first.last_name}" %>
   <br>
   <strong>Student's Grades:</strong>
-  <%= Principal.display_student_grades(@student) %>
+  <table>
+    <thead>
+      <tr>
+        <th>Grade  </th>
+        <th>Assignment name </th>
+        <th>Assignment date </th>
+        <th>Student </th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @student.assignment_grades.each do |assignment_grade| %>
+        <tr>
+          <td><%= assignment_grade.grade %></td>
+          <td><%= assignment_grade.assignment_name %></td>
+          <td><%= assignment_grade.assignment_date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
   <br>
-  <strong>Student's Assignments:</strong>
-  <%= Principal.display_assignment_name(@student) %>
 <% end %>
 
 
