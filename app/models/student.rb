@@ -6,8 +6,8 @@ class Student < ActiveRecord::Base
 
   validates :first_name, presence: true
     #
-    def average_grade
-      assignment_grades.average(:grade)
-    end
+  def average_grade
+    assignment_grades.average(:grade)
+  end
 
 end

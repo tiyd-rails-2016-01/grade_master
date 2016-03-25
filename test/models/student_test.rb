@@ -9,7 +9,11 @@ class StudentTest < ActiveSupport::TestCase
   end
 
   test "teacher student index page displays their students average grades" do
-    assert_equal 79, average_grade.where(:student_id = 1)
+    assert_equal 79, students(:one).average_grade
+  end
+
+  test "Student sees average grade after logging in" do
+    assert_equal 79, students(:one).average_grade
   end
 
 

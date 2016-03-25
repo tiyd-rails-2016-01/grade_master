@@ -8,5 +8,6 @@
   <%= link_to "Manage Parents", parents_path %><br>
   <%= link_to "Manage Grades", grades_path %><br>
 <% elsif session[:user_id] %>
+  <p>Avg Grade: <%= @student.average_grade %></p>
   <%= link_to "View Grades", grades_path %><br>
 <% end %>
