@@ -2,7 +2,7 @@
 
 one:
   grade: 89
-  assignment_name: economics
+  assignment_name: economical eugenicology
   assignment_date: 2016-03-08
   student_id: 1
 
@@ -11,3 +11,39 @@ two:
   assignment_name: snail etymology
   assignment_date: 2015-03-08
   student_id: 1
+
+three:
+  grade: 99
+  assignment_name: Phlegmonic denomiatrical frenzies in history
+  assignment_date: 2016-03-08
+  student_id: 1
+
+four:
+  grade: 44
+  assignment_name: anatomy of the female species
+  assignment_date: 2015-03-05
+  student_id: 2
+
+five:
+  grade: 100
+  assignment_name: plate techtonic economics
+  assignment_date: 2016-03-08
+  student_id: 3
+
+six:
+  grade: 59
+  assignment_name: history of robotiatrics
+  assignment_date: 2015-03-08
+  student_id: 3
+
+seven:
+  grade: 99
+  assignment_name: animation and its effect on the 'millenials'
+  assignment_date: 2016-03-08
+  student_id: 2
+
+eight:
+  grade: 94
+  assignment_name: anatomy of the female species
+  assignment_date: 2015-03-05
+  student_id: 2
