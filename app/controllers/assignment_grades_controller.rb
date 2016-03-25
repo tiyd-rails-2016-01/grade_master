@@ -5,7 +5,6 @@ class AssignmentGradesController < ApplicationController
   # GET /assignment_grades
   # GET /assignment_grades.json
   def index
-    # @assignment_grades = nil
     @assignment_grades = find_grades
   end
 
@@ -76,7 +75,7 @@ class AssignmentGradesController < ApplicationController
     def assignment_grade_params
       params.require(:assignment_grade).permit(:grade, :assignment_name, :assignment_date, :student_id)
     end
-    
+
     def find_grades
       if session[:person_type] == "Teacher"
         return AssignmentGrade.all

@@ -3,14 +3,12 @@ class AchievementsController < ApplicationController
   before_action :authenticate_teacher
 
   # GET /Achievements
-  # GET /Achievements.json
   def index
     @achievements = Achievement.all
     @students = Student.where(teacher_id: session[:user_id])
   end
 
   # GET /Achievements/1
-  # GET /Achievements/1.json
   def show
   end
 
@@ -24,7 +22,6 @@ class AchievementsController < ApplicationController
   end
 
   # POST /Achievements
-  # POST /Achievements.json
   def create
     @achievement = Achievement.new(achievement_params)
 
@@ -38,7 +35,6 @@ class AchievementsController < ApplicationController
   end
 
   # PATCH/PUT /Achievements/1
-  # PATCH/PUT /Achievements/1.json
   def update
 
     respond_to do |format|
@@ -51,12 +47,10 @@ class AchievementsController < ApplicationController
   end
 
   # DELETE /Achievements/1
-  # DELETE /Achievements/1.json
   def destroy
     @achievement.destroy
     respond_to do |format|
       format.html { redirect_to achievements_url, notice: 'Achievement was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
