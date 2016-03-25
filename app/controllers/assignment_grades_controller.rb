@@ -46,7 +46,7 @@ class AssignmentGradesController < ApplicationController
   def update
     respond_to do |format|
       if @assignment_grade.update(assignment_grade_params)
-        format.html { redirect_to @assignment_grade, notice: 'Assignment grade was successfully updated.' }
+        format.html { redirect_to @assignment_grade, notice: "Assignment grade was successfully updated." }
         format.json { render :show, status: :ok, location: @assignment_grade }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class AssignmentGradesController < ApplicationController
   def destroy
     @assignment_grade.destroy
     respond_to do |format|
-      format.html { redirect_to assignment_grades_url, notice: 'Assignment grade was successfully destroyed.' }
+      format.html { redirect_to assignment_grades_url, notice: "Assignment grade was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -73,14 +73,14 @@ class AssignmentGradesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_grade_params
-      params.require(:assignment_grade).permit(:grade, :assignment_name, :assignment_date, :student_id)
+      params.require(:assignment_grade).permit(:grade, :assignment_name, :assignment_date, :student_id, :uploaded_file)
     end
 
     def find_grades
       if session[:person_type] == "Teacher"
         AssignmentGrade.all
       elsif session[:person_type] == "Student"
-        Student.find(session[:person_id]).assignment_grades
+        Student.find(User.find(session[:user_id]).person_id).assignment_grades
       else
         @parent = Parent.find(session[:person_id])
         @parent.assignment_grades

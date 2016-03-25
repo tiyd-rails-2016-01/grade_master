@@ -5,6 +5,9 @@ ruby '2.2.2'
 gem 'puma'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
+gem "omniauth-github", '1.1.1'
+# Use sqlite3 as the database for Active Record
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -29,6 +32,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
+gem 'aws-sdk', '< 2.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -53,8 +58,6 @@ group :development do
 end
 
 group :production do
-  #You'll need postgress eventually.
-  gem 'pg'
-
   gem 'rails_12factor'
+  gem 'pg'
 end
