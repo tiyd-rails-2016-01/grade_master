@@ -2,8 +2,6 @@ class PrincipalsController < ApplicationController
   before_action :set_principal, only: [:show]
   before_action :authenticate_principal
 
-  # GET /principals
-  # GET /principals.json
   def index
     @principals = Principal.all
     @teachers = Teacher.all
@@ -12,20 +10,8 @@ class PrincipalsController < ApplicationController
     @assignment_grades = AssignmentGrade.all
   end
 
-  # GET /principals/1
-  # GET /principals/1.json
   def show
   end
-
-  # GET /principals/new
-
-
-  # GET /principals/1/edit
-
-
-  # POST /principals
-  # POST /principals.json
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
