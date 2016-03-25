@@ -10,6 +10,10 @@
   <strong>Student's Teacher:</strong>
   <%= "#{@student.teacher.first_name} #{@student.teacher.last_name}" if @student.teacher%>
 </p>
+<p>
+  <strong>Student's Achievements:</strong>
+  <%= "Total points: #{@student.total_achievements} | Grade equivalent: #{@student.achievement_grade}"%>
+</p>
 
 
 
