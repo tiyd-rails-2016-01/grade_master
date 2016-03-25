@@ -211,10 +211,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-github (= 1.1.1)
-
   paperclip (~> 4.3)
-
-
   pg
   puma
   rails (= 4.2.5.1)
