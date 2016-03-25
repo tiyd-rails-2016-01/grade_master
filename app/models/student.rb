@@ -5,5 +5,9 @@ class Student < ActiveRecord::Base
   has_many :users, as: :person
 
   validates :first_name, presence: true
+    #
+    def average_grade
+      assignment_grades.average(:grade)
+    end
 
 end

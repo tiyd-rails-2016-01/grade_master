@@ -16,7 +16,7 @@
       <tr>
         <td><%= student.first_name %></td>
         <td><%= student.last_name %></td>
-        <td><%= AssignmentGrade.where("student_id = ?", student.id).average(:grade) %></td>
+        <td><%= student.average_grade %></td>
   <br>
         <td><%= "#{student.teacher.first_name} #{student.teacher.last_name}" if student.teacher %></td>
         <td><%= link_to 'Show', student %></td>

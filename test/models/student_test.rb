@@ -8,5 +8,9 @@ class StudentTest < ActiveSupport::TestCase
     assert student.assignment_grades.include?(grade)
   end
 
+  test "teacher student index page displays their students average grades" do
+    
+  end
+
 
 end
