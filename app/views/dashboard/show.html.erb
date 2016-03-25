@@ -12,6 +12,7 @@
   <h3>Total Number of Teachers = <%= "#{Principal.number_of_teachers}" %></h3>
   <h3>Total Number of Students = <%= Principal.number_of_students %></h3>
   <h3>Classroom Ratio = <%= "#{Principal.number_of_teachers} : #{Principal.number_of_students}" %></h3>
+  <h3>Number of Assignments Completed This Year = <%= "#{Principal.completed_assignments}" %> </h3>
 <% else session[:user_id] %>
   <%= link_to "View Grades", grades_path %><br>
 <% end %>

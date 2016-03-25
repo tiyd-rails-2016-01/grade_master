@@ -1,3 +1,17 @@
+<% if session[:person_type] == "Principal" %>
+  <strong>Student's Name:</strong>
+  <%= "#{@student.first_name} #{@student.last_name}" %>
+  <br>
+  <strong>Student's Parent(s):</strong>
+  <%= "#{Principal.display_parent_first(@student)} #{Principal.display_parent_last(@student)}" %>
+  <br>
+  <strong>Student's Grades:</strong>
+  <%= Principal.display_student_grades(@student) %>
+<% end %>
+
+
+
+<% if session[:person_type] == "Teacher" %>
 <p>
   <strong>Student First Name:</strong>
   <%= @student.first_name %>
@@ -10,10 +24,7 @@
   <strong>Student's Teacher:</strong>
   <%= "#{@student.teacher.first_name} #{@student.teacher.last_name}" if @student.teacher%>
 </p>
-
-
-
-<% if session[:person_type] == "Teacher" %>
+<br>
 <%= link_to 'Edit', edit_student_path(@student) %>
 <%= link_to 'Back', students_path %>
 <% end %>
