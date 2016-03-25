@@ -6,6 +6,13 @@ one:
   person_id: 1
   person_type: Teacher
 
+mason:
+    email: mason@a.com
+    password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
+    person_id: 1
+    person_type: Teacher
+
+
 two:
   email: b@b.com
   password_digest: <%= BCrypt::Password.create("password", cost: 4) %>

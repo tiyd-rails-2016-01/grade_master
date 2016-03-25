@@ -35,3 +35,12 @@ User.create(email: 'damianhouse@example.com', password: 'monkey', github_user_na
 
 student = Student.create(first_name: "user", last_name: "user")
 User.create(email: 'test@test.com', password: 'monkey', person_id: student.id, person_type: "Student")
+
+a1 = Achievement.create(name: "Perfect Attendance", description: "The first!", points: 100)
+a2 = Achievement.create(name: "Apple for Teacher", description: "The second!", points: 200)
+a10 = Achievement.create(name: "Honor Roll", description: "Um... the tenth?", points: 1000)
+a11 = Achievement.create(name: "Almost Honor Roll", description: "Yay", points: 800)
+a12 = Achievement.create(name: "Minimal Effort", description: "equivalent to participation award", points: 50)
+a13 = Achievement.create(name: "Joined a Team", description: "Gooooo, Team!", points: 500)
+a14 = Achievement.create(name: "School Club Officer", description: "Overachiever", points: 700)
+a15 = Achievement.create(name: "Timeliness", description: "Good for you", points: 3000)

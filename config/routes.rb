@@ -9,12 +9,16 @@ Rails.application.routes.draw do
 
   get "/auth/:provider/callback" => "authentications#create"
 
+  get 'student_achievements' => 'students#edit_achievements'
+
+
   resources :authentications
   resources :assignment_grades
   resources :students
   resources :parents
   resources :teachers
   resources :users
+  resources :achievements
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

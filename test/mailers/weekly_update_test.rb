@@ -2,11 +2,12 @@ require 'test_helper'
 
 class WeeklyUpdateTest < ActionMailer::TestCase
   test "grade_report" do
-    mail = WeeklyUpdate.grade_report
-    assert_equal "Grade report", mail.subject
+    test_path = Rails.root.join("test", "mailers", "test.csv")
+    mail = WeeklyUpdate.grade_report("to@example.org", test_path, parents(:one).id)
+    assert_equal "Weekly Grades", mail.subject
     assert_equal ["to@example.org"], mail.to
-    assert_equal ["from@example.com"], mail.from
-    assert_match "Hi", mail.body.encoded
+    assert_equal ["GradeMaster@school.edu"], mail.from
+    assert_match "Hay", mail.body.encoded
   end
 
 end
