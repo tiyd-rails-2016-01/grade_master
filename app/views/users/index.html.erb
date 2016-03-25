@@ -12,7 +12,7 @@
       <tr>
         <td><%= user.email %></td>
         <td><%= user.person_id %></td>
-        <td><%= user.person_type %></td>        
+        <td><%= user.person_type %></td>
         <td><%= "#{user.person_type.constantize.find(user.person_id).first_name} #{user.person_type.constantize.find(user.person_id).last_name}" if user.person_id%></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
