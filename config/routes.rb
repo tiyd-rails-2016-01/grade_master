@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'grades' => 'assignment_grades#index'
 
+  get 'student_achievements' => 'students#edit_achievements'
+
   resources :authentications
   resources :assignment_grades
   resources :students

@@ -6,6 +6,7 @@ class AchievementsController < ApplicationController
   # GET /Achievements.json
   def index
     @achievements = Achievement.all
+    @students = Student.where(teacher_id: session[:user_id])
   end
 
   # GET /Achievements/1

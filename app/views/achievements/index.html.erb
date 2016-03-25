@@ -1,29 +1,8 @@
-<h1>Listing Achievements</h1>
+<h1>Student Achievements</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Points</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @achievements.each do |achievement| %>
-      <tr>
-        <td><%= achievement.name %></td>
-        <td><%= achievement.description %></td>
-        <td><%= achievement.points %></td>
-        <td><%= link_to 'Show', achievement %></td>
-        <td><%= link_to 'Edit', edit_achievement_path(achievement) %></td>
-        <td><%= link_to 'Destroy', achievement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h4>Click on a student to edit their achievements:</h3>
+<% @students.each do |s| %>
+  <p><%= link_to "#{s.first_name} #{s.last_name} | Current point total: #{s.total_achievements}", student_achievements_path(id: s.id) %></p>
+<% end %>
 
 <br>
-
-<%= link_to 'New Achievement', new_achievement_path %>
