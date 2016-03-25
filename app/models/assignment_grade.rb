@@ -6,4 +6,12 @@ class AssignmentGrade < ActiveRecord::Base
   validates_attachment_size :uploaded_file, :less_than => 5.megabytes
   validates :assignment_name, presence: true
   validates :grade, presence: true
+
+
+  def self.send_reports
+    parents = Parent.joins(:users).where("email_preferences = ?", true)
+    parents.each do |p|
+      GradeReportJob.perform_now(p.id)
+    end
+  end
 end

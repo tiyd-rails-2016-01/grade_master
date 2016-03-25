@@ -82,7 +82,8 @@ class AssignmentGradesController < ApplicationController
       elsif session[:person_type] == "Student"
         Student.find(User.find(session[:user_id]).person_id).assignment_grades
       else
-        Parent.find(User.find(session[:user_id]).person_id).assignment_grades
+        @parent = Parent.find(session[:person_id])
+        @parent.assignment_grades
       end
     end
 end

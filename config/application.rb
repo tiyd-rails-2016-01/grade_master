@@ -22,6 +22,7 @@ module HW030816
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.active_job.queue_adapter = :delayed_job
 
     config.paperclip_defaults = {
       :storage => :s3,
@@ -34,5 +35,6 @@ module HW030816
         :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
       }
     }
+
   end
 end

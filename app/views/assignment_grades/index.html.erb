@@ -1,6 +1,14 @@
 
 <h1>Grades</h1>
 
+<% if session[:person_type] == "Parent" %>
+  <%= form_for @parent do |f| %>
+    <%= f.label "Would you like to receive weekly emails?" %>
+    <%= f.check_box :email_preferences %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+
 <% if @assignment_grades %>
   <table>
     <thead>
