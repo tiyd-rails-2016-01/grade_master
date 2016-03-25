@@ -93,3 +93,23 @@
 </table>
 
 <br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Test 1</th>
+      <th>Test 2</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teachers.each do |t| %>
+    <h3><%= t.first_name %> <%=  t.last_name %></h3>
+      <div id=“student”>  <% @students.each do |s| %>
+          <%= s.first_name %>  <%= s.last_name %> <br>
+      <% end %>
+      </div>
+      <% end %>
+    </tbody>
+  </table>

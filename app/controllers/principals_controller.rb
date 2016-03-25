@@ -12,6 +12,7 @@ class PrincipalsController < ApplicationController
     @assignment_grades = AssignmentGrade.all
   end
 
+
   # GET /principals/1
   # GET /principals/1.json
   def show
