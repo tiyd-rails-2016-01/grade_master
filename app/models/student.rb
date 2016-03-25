@@ -11,4 +11,8 @@ class Student < ActiveRecord::Base
 
   validates :first_name, presence: true
 
+  def total_achievements
+    achievements.sum(:points)
+  end
+
 end

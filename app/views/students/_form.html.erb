@@ -24,13 +24,13 @@
     <%= f.collection_select :teacher_id, Teacher.all, :id, :first_name, :prompt => "Select Teacher..." %>
   </div>
 
-  <h5>Achievements</h5>
+  <h5>Achievements - Total Points: <%=@student.total_achievements%></h5>
   <% student_list = @student.achievements.pluck(:name) %>
 
   <% @achievements_list.each do |a| %>
 
     <div class="field">
-      <%= label_tag a.name %>
+      <%= label_tag a.name %> (<%= a.points %>)
       <% if student_list.include?(a.name) %>
         <%= check_box :achievements, a.id, {checked: true}  %>
       <% else %>
