@@ -1,29 +1,35 @@
-<%= form_for(@parent) do |f| %>
-  <% if @parent.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@parent.errors.count, "error") %> prohibited this parent from being saved:</h2>
+<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+<div id="form-main">
+  <div id="form-div">
+    <div class="form" id="form1">
+      <%= form_for(@parent) do |f| %>
+        <% if @parent.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@parent.errors.count, "error") %> prohibited this parent from being saved:</h2>
 
-      <ul>
-      <% @parent.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+            <% @parent.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <p class="name">
+          <%= f.text_field :first_name, class: "feedback-input", placeholder: "First Name"  %>
+        </p>
+        <p class="name">
+          <%= f.text_field :last_name, class: "feedback-input", placeholder: "Last Name"  %>
+        </p>
+        <p class="name">
+          <%= f.collection_select :student_id, Student.all, :id, :first_name, :prompt => "Select Student..." %>
+        </p>
+        <p class="actions">
+          <%= f.submit :id => "button-blue" %>
+        </p>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+      <div class="git-link" >
+    <%= link_to 'Back', parents_path %>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
   </div>
-  <div class="field">
-    <%= f.label :student %><br>
-    <%= f.collection_select :student_id, Student.all, :id, :first_name, :prompt => "Select Student..." %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

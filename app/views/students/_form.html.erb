@@ -1,3 +1,9 @@
+<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+<div id="form-main">
+  <div id="form-div">
+    <div class="form" id="form1">
+
+
 <%= form_for(@student) do |f| %>
   <% if @student.errors.any? %>
     <div id="error_explanation">
@@ -11,19 +17,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
+  <p class="name">
+    <%= f.text_field :first_name,  class: "feedback-input", placeholder: "First Name" %>
+  </p>
+  <p class="name">
+
+    <%= f.text_field :last_name,  class: "feedback-input", placeholder: "Last Name" %>
+  </p>
+  <p class="name">
     <%= f.label :teacher %><br>
     <%= f.collection_select :teacher_id, Teacher.all, :id, :first_name, :prompt => "Select Teacher..." %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  </p>
+  <p class="submit">
+    <%= f.submit :id => "button-blue"%>
+  </p>
 <% end %>
+
+<div class="git-link" >
+<%= link_to 'Back', users_path %>
+</div>
+</div>
