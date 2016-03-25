@@ -2,7 +2,7 @@
 
 <h4>Click on a student to edit their achievements:</h3>
 <% @students.each do |s| %>
-  <p><%= link_to "#{s.first_name} #{s.last_name} | Current point total: #{s.total_achievements}", student_achievements_path(id: s.id) %></p>
+  <p><%= link_to "#{s.first_name} #{s.last_name} | Current point total: #{s.total_achievements} | Grade equivalent: #{s.achievement_grade}", student_achievements_path(id: s.id) %></p>
 <% end %>
 
 <br>
