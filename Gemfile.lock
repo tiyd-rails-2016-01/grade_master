@@ -214,6 +214,7 @@ DEPENDENCIES
 
   paperclip (~> 4.3)
 
+
   pg
   puma
   rails (= 4.2.5.1)
