@@ -1,5 +1,5 @@
 class PrincipalsController < ApplicationController
-  before_action :set_principal, only: :show
+  before_action :set_principal, only: [:show]
   before_action :authenticate_principal
 
   # GET /principals
@@ -11,7 +11,6 @@ class PrincipalsController < ApplicationController
     @parents = Parent.all
     @assignment_grades = AssignmentGrade.all
   end
-
 
   # GET /principals/1
   # GET /principals/1.json

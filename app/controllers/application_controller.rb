@@ -10,12 +10,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  private def authenticate_principal_or_teacher
-    redirect_to root_path, notice: "You don't have permission to access that page." unless session[:person_type] == "Principal" || session[:person_type] == "Teacher"
-  end
-
   private def authenticate_principal
     redirect_to root_path, notice: "You don't have permission to access that page." unless session[:person_type] == "Principal"
+  end
+
+  private def authenticate_principal_or_teacher
+    redirect_to root_path, notice: "You don't have permission to access that page." unless session[:person_type] == "Principal" || session[:person_type] == "Teacher"
   end
 
   private def authenticate_teacher

@@ -13,6 +13,18 @@ class Principal < ActiveRecord::Base
     @students.count
   end
 
+  def self.completed_assignments
+   @assignment_grade = AssignmentGrade.all
+   @assignment_grade.count
+  end
+
+  def self.display_assignment_name(student)
+    @assignment_grade = AssignmentGrade.all
+    @assignment_grade.each do |g|
+      AssignmentGrade.find_by(student_id: student.id).assignment_name
+    end
+  end
+
   def self.display_student_grades(student)
     AssignmentGrade.find_by(student_id: student.id).grade
   end
@@ -25,19 +37,4 @@ class Principal < ActiveRecord::Base
     Parent.find_by(student_id: student.id).last_name
   end
 
-  def self.completed_assignments
-    @assignment_grade = AssignmentGrade.all
-    @assignment_grade.count
-  end
-
-  def self.display_assignment_name(student)
-    AssignmentGrade.find_by(student_id: student.id).assignment_name
-  end
-
 end
-
-
-# define methods in principal model
-# make those methods self.
-# add them to the dashboard.show.html.erb
-# interpolate
