@@ -10,4 +10,11 @@ class Student < ActiveRecord::Base
     assignment_grades.average(:grade)
   end
 
+  def class_rank(tid)
+    t = Teacher.find(tid)
+    s = Student.where(teacher_id: t.id)
+
+
+  end
+
 end

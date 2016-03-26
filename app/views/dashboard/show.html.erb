@@ -1,6 +1,8 @@
 <h1>Hay<%= ", #{session[:person_type]}"  %></h1>
 <p></p>
 
+
+
 <% if session[:person_type] == "Teacher" %>
   <%= link_to "Manage Users", users_path %><br>
   <%= link_to "Manage Teachers", teachers_path %><br>
@@ -8,6 +10,11 @@
   <%= link_to "Manage Parents", parents_path %><br>
   <%= link_to "Manage Grades", grades_path %><br>
 <% elsif session[:user_id] %>
-  <p>Avg Grade: <%= @student.average_grade %></p>
+  <p>GPA: <%= @student.average_grade %></p>
+  <p>Class Rank:
+  <% @student.class_rank(@student.teacher_id).each do |s|%>
+    <%= s.average_grade %>
+  <% end %>
+</p>
   <%= link_to "View Grades", grades_path %><br>
 <% end %>
