@@ -23,16 +23,9 @@
     <%= f.label :teacher %><br>
     <%= f.collection_select :teacher_id, Teacher.all, :id, :first_name, :prompt => "Select Teacher..." %>
   </div>
-  <h3>Assignment Grades</h3>
 
-  <%= f.fields_for :assignment_grades do |ff| %>
-    <div>
-      <%= ff.text_field :grade %>
-      <%= ff.date_field :assignment_date %>
-      <%= ff.collection_select :assignment_name, AssignmentGrade.all, :id, :assignment_name, :prompt => "Select Assignment..." %>
 
-    </div>
-  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

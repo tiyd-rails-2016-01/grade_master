@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get "/auth/:provider/callback" => "authentications#create"
 
+  get 'add_assignment' => 'students#add_assignment'
   resources :authentications
   resources :assignment_grades
   resources :students

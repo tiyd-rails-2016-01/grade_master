@@ -13,6 +13,9 @@ class StudentsController < ApplicationController
   def show
   end
 
+  def add_assignment
+    @assignment_grade = AssignmentGrade.new
+  end
   # GET /students/new
   def new
     @student = Student.new
@@ -20,7 +23,6 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
-    @student.assignment_grades.build
   end
 
   # POST /students
@@ -28,14 +30,8 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
 
-    respond_to do |format|
-      if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
-        format.json { render :show, status: :created, location: @student }
-      else
-        format.html { render :new }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
+    unless @student.save
+      render :new
     end
   end
 
