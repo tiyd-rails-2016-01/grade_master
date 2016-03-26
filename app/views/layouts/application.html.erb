@@ -12,8 +12,13 @@
 
   <div class="device-background">
     <div class="device-text">
-    <h4>Hay<%= ", #{session[:person_type]}"  %></h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, recusandae? Deserunt repellendus.</p>
+      <% if session[:user_id] %>
+        <h4>Hay<%= ", #{session[:person_type]}"  %></h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, recusandae? Deserunt repellendus.</p>
+      <% else %>
+        <h4> Welcome to GradeMaster </h4>
+        <p><%= link_to "Please login to view your dashboard", login_path, :class => "dark-bg-text" %></p>
+      <% end %>
     </div>
     <div class="device">
       <div class="screen"></div>
