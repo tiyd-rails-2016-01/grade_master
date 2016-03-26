@@ -22,7 +22,7 @@ class AssignmentGradesController < ApplicationController
   # GET /assignment_grades/1/edit
   def edit
     authenticate_teacher
-
+    @assignment_grade = AssignmentGrade.find(params[:id])
   end
 
   # POST /assignment_grades

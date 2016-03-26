@@ -20,9 +20,11 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+    @student.assignment_grades.build
   end
 
   def edit_achievements
+    @student = Student.find(params[:id])
     @achievements_list = Achievement.all
   end
 

@@ -22,18 +22,7 @@
     </thead>
 
     <tbody>
-      <% @assignment_grades.each do |assignment_grade| %>
-        <tr>
-          <td><%= assignment_grade.grade %></td>
-          <td><%= assignment_grade.assignment_name %></td>
-          <td><%= assignment_grade.assignment_date %></td>
-          <td><%= "#{assignment_grade.student.first_name} #{assignment_grade.student.last_name}" if assignment_grade.student %></td>
-          <td><%= link_to 'Show PDF', assignment_grade.uploaded_file.url %></td>
-          <td><%= link_to 'Show', assignment_grade %></td>
-          <td><%= link_to 'Edit', edit_assignment_grade_path(assignment_grade) if session[:person_type] == "Teacher" %></td>
-          <td><%= link_to 'Destroy', assignment_grade, method: :delete, data: { confirm: 'Are you sure?' } if session[:person_type] == "Teacher" %></td>
-        </tr>
-      <% end %>
+        <%= render @assignment_grades %>
     </tbody>
   </table>
   <br>
