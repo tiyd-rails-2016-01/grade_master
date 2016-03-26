@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'student_achievements' => 'students#edit_achievements'
 
 
+
   resources :authentications
   resources :assignment_grades
   resources :students

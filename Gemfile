@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+ruby '2.3.0'
 
-gem 'puma'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 gem "omniauth-github", '1.1.1'
@@ -61,4 +60,5 @@ end
 group :production do
   gem 'rails_12factor'
   gem 'pg'
+  gem 'puma'
 end

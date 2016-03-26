@@ -31,14 +31,8 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
 
-    respond_to do |format|
-      if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
-        format.json { render :show, status: :created, location: @student }
-      else
-        format.html { render :new }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
+    unless @student.save
+      render :new
     end
   end
 
@@ -83,6 +77,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:first_name, :last_name, :teacher_id, :achievements)
+      params.require(:student).permit(:first_name, :last_name, :teacher_id, assignment_grades_attributes: [:id, :grade, :assignment_name, :assignment_date, :student_id, :_destroy])
     end
 end
