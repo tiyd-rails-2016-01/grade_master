@@ -38,6 +38,7 @@ h1 {
   @include display(flex);
   @include flex-wrap(wrap);
   @include justify-content(space-between);
+  padding-top: 1em;
 }
 
 .card {
@@ -129,7 +130,7 @@ h1 {
   $device-padding-vertical: 4em;
   $device-padding-horizontal: 0em;
   $device-screen-width: 14em;
-  $device-screen-height: 25em;
+  $device-screen-height: 20em;
   $device-background: darken(gray, 40%);
   $device-backside-background: darken($device-background, 10%);
   $device-text-color: white;
@@ -142,16 +143,16 @@ h1 {
   @include background(url($device-image), linear-gradient($gradient-angle, $device-background-bottom, $device-background-top), no-repeat $device-background-top scroll);
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 20em;
+  min-height: 15em;
   width: 100%;
 
   .device-text {
-    padding: 2em;
+    padding: 1em;
 
     @include media($large-screen) {
       float: left;
       max-width: 50%;
-      padding: 4em;
+      padding: 3em;
     }
 
     h4 {
