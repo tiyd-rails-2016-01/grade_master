@@ -6,5 +6,4 @@ class DashboardController < ApplicationController
       @student = Parent.find(User.find(session[:user_id]).person_id).student
     end
   end
-
 end

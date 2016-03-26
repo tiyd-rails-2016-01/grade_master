@@ -16,5 +16,9 @@ class StudentTest < ActiveSupport::TestCase
     assert_equal 79, students(:one).average_grade
   end
 
+  test "Student sees class rank after logging in" do
+    assert_equal 2, students(:one).class_rank
+  end
+
 
 end
