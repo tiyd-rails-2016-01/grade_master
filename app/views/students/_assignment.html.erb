@@ -1,8 +1,0 @@
-<h3>Assignment Grades</h3>
-<%= f.fields_for :assignment_grades do |ff| %>
-  <div>
-    <%= ff.text_field :grade, placeholder: "Grade" %>
-    <%= ff.text_field :assignment_name, placeholder: "Assignment Name" %>
-    <%= ff.date_field :assignment_date %>
-  </div>
-<% end %>

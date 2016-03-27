@@ -24,26 +24,6 @@
     <%= f.collection_select :teacher_id, Teacher.all, :id, :first_name, :prompt => "Select Teacher..." %>
   </div>
 
-    <%= link_to "Manage achievements", student_achievements_path(id: @student.id), remote: true %><br>
-
-    <div class="manage_achievements">
-    </div>
-
-  <h3>Assignment Grades</h3>
-  <%= f.fields_for :assignment_grades do |ff| %>
-    <div>
-      <%= ff.text_field :grade, placeholder: "Grade" %>
-      <%= ff.text_field :assignment_name, placeholder: "Assignment Name" %>
-      <%= ff.date_field :assignment_date %>
-    </div>
-  <% end %>
-
-
-  <%= link_to 'Add Assignment', new_assignment_grade_path, remote: true %>
-
-  <div class="add_assignment">
-  </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>

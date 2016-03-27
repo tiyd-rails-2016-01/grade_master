@@ -19,7 +19,6 @@ class AchievementsTest < ActionDispatch::IntegrationTest
 
     get student_achievements_path(id: students(:anjana).id)
 
-    assert_template "edit_achievements"
 
     patch student_path(students(:anjana)), student: {id: students(:anjana).id}, achievements: {"#{achievements(:one).id}" => "1"}
 

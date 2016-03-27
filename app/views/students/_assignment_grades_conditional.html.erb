@@ -1,15 +1,4 @@
-
-<h1>Grades</h1>
-
-<% if session[:person_type] == "Parent" %>
-  <%= form_for @parent do |f| %>
-    <%= f.label "Would you like to receive weekly emails?" %>
-    <%= f.check_box :email_preferences %>
-    <%= f.submit %>
-  <% end %>
-<% end %>
-
-<% if @assignment_grades %>
+<% if assignment_grades %>
   <table>
     <thead>
       <tr>
@@ -22,16 +11,16 @@
     </thead>
 
     <tbody class="grades_table">
-        <%= render @assignment_grades %>
+        <%= render assignment_grades %>
     </tbody>
   </table>
   <br>
 
   <%= link_to 'New Assignment grade', new_assignment_grade_path, remote: true if session[:person_type] == "Teacher"%>
-  <div class="add_assignment">
-  </div>
+
 <% else %>
 
   <p>Sorry. There are no assignments for this user. Either your teacher needs to create some, or your permissions need to be changed. Contact your teacher for more details.</p>
 
+  <%= link_to 'New Assignment grade', new_assignment_grade_path, remote: true if session[:person_type] == "Teacher"%>
 <% end %>

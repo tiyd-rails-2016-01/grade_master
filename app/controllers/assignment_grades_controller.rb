@@ -11,6 +11,9 @@ class AssignmentGradesController < ApplicationController
   # GET /assignment_grades/1
   # GET /assignment_grades/1.json
   def show
+    unless @assignment_grade.save
+      render :new
+    end
   end
 
   # GET /assignment_grades/new
@@ -22,46 +25,39 @@ class AssignmentGradesController < ApplicationController
   # GET /assignment_grades/1/edit
   def edit
     authenticate_teacher
-    @assignment_grade = AssignmentGrade.find(params[:id])
   end
 
   # POST /assignment_grades
   # POST /assignment_grades.json
   def create
     @assignment_grade = AssignmentGrade.new(assignment_grade_params)
-
-    respond_to do |format|
-      if @assignment_grade.save
-        format.html { redirect_to @assignment_grade, notice: 'Assignment grade was successfully created.' }
-        format.json { render :show, status: :created, location: @assignment_grade }
-      else
-        format.html { render :new }
-        format.json { render json: @assignment_grade.errors, status: :unprocessable_entity }
-      end
+    unless @assignment_grade.save
+      render :new
     end
+    student = Student.find(@assignment_grade.student_id)
+    @assignment_grades = student.assignment_grades.reload
   end
 
   # PATCH/PUT /assignment_grades/1
   # PATCH/PUT /assignment_grades/1.json
   def update
-    respond_to do |format|
-      if @assignment_grade.update(assignment_grade_params)
-        format.html { redirect_to @assignment_grade, notice: "Assignment grade was successfully updated." }
-        format.json { render :show, status: :ok, location: @assignment_grade }
-      else
-        format.html { render :edit }
-        format.json { render json: @assignment_grade.errors, status: :unprocessable_entity }
-      end
+    authenticate_teacher
+    unless @assignment_grade.update(assignment_grade_params)
+        format.html { render :edit}
     end
+
+    @assignment_grades = AssignmentGrade.where(student_id: @assignment_grade.student_id)
   end
 
   # DELETE /assignment_grades/1
   # DELETE /assignment_grades/1.json
   def destroy
+    student = Student.find(@assignment_grade.student_id)
     @assignment_grade.destroy
-    respond_to do |format|
-      format.html { redirect_to assignment_grades_url, notice: "Assignment grade was successfully destroyed." }
-      format.json { head :no_content }
+    if student.reload.assignment_grades.count > 0
+      @assignment_grades = student.reload.assignment_grades
+    else
+      @assignment_grades = nil
     end
   end
 
@@ -77,8 +73,10 @@ class AssignmentGradesController < ApplicationController
     end
 
     def find_grades
-      if session[:person_type] == "Teacher"  || session[:person_type] == "Principal"
+      if session[:person_type] == "Principal"
         AssignmentGrade.all
+      elsif session[:person_type] == "Teacher"
+        Student.find_by(teacher_id: User.find(session[:user_id])).assignment_grades
       elsif session[:person_type] == "Student"
         Student.find(User.find(session[:user_id]).person_id).assignment_grades
       else

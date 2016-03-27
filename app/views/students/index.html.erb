@@ -1,18 +1,7 @@
 <h1>Listing Students</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Teacher</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <%= render @students %>
-  </tbody>
+<table class="students">
+  <%= render partial: "students_table", locals: {students: @students} %>
 </table>
 
 <br>
@@ -20,4 +9,10 @@
 <%= link_to 'New Student', new_student_path, remote: true %>
 
 <div class="new_student">
+</div>
+<div class="manage_assignments">
+</div>
+<div class="add_assignment">
+</div>
+<div class="manage_achievements">
 </div>
