@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160324203238) do
 
-
   create_table "achievements", force: :cascade do |t|
     t.string   "name"
     t.text     "description"

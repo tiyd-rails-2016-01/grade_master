@@ -34,7 +34,6 @@ assignment_grade = AssignmentGrade.create(grade: 96, assignment_name: "Epidemiol
 assignment_grade = AssignmentGrade.create(grade: 92, assignment_name: "Ruby on Rails", assignment_date: 2016-01-01, student_id: 4)
 assignment_grade = AssignmentGrade.create(grade: 91, assignment_name: "Epidemiology", assignment_date: 2016-02-01, student_id: 4)
 assignment_grade = AssignmentGrade.create(grade: 89, assignment_name: "Ruby on Rails", assignment_date: 2016-01-01, student_id: 3)
-=======
 
 teacher = Teacher.create(first_name: "Brian", last_name: "Yarsawich")
 User.create(email: 'byarsawich@example.com', password: 'monkey', github_user_name: 'byarsawich', person_id: teacher.id, person_type: "Teacher")
