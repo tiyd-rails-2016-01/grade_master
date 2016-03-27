@@ -20,6 +20,10 @@
     <%= f.label :password %><br>
     <%= f.password_field :password %>
   </div>
+  <div class="field">
+    <%= f.label :github_user_name %><br>
+    <%= f.text_field :github_user_name %>
+  </div>
   <% if session[:person_type] == "Teacher" %>
     <div class="field">
       <%= f.label :associated_person %><br>

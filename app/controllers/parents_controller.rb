@@ -1,7 +1,7 @@
 class ParentsController < ApplicationController
   before_action :set_parent, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user
-  before_action :authenticate_teacher
+  before_action :authenticate_teacher, only: [:edit, :destroy]
 
 
   # GET /parents
@@ -45,8 +45,12 @@ class ParentsController < ApplicationController
   def update
     respond_to do |format|
       if @parent.update(parent_params)
-        format.html { redirect_to @parent, notice: 'Parent was successfully updated.' }
-        format.json { render :show, status: :ok, location: @parent }
+        if session[:person_type] == "Teacher"
+          format.html { redirect_to @parent, notice: 'Parent was successfully updated.' }
+          format.json { render :show, status: :ok, location: @parent }
+        else
+          format.html { redirect_to :root, notice: 'Preferences were successfully updated.' }
+        end
       else
         format.html { render :edit }
         format.json { render json: @parent.errors, status: :unprocessable_entity }
@@ -72,6 +76,6 @@ class ParentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parent_params
-      params.require(:parent).permit(:first_name, :last_name, :student_id)
+      params.require(:parent).permit(:first_name, :last_name, :student_id, :email_preferences)
     end
 end

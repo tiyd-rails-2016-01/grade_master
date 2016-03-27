@@ -11,3 +11,8 @@ two:
   last_name: buttlarge
   student_id: 1
   id: 1
+
+three:
+  first_name: MyString
+  last_name: MyString
+  student_id: 2

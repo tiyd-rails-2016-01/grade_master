@@ -1,0 +1,38 @@
+<%= form_for(@student) do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% @student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <h5>Achievements - Total Points: <%=@student.total_achievements%></h5>
+  <% student_list = @student.achievements.pluck(:name) %>
+
+  <% @achievements_list.each do |a| %>
+
+    <div class="field">
+      <%= label_tag a.name %> (<%= a.points %>)
+      <% if student_list.include?(a.name) %>
+        <%= check_box :achievements, a.id, {checked: true}  %>
+      <% else %>
+        <%= check_box :achievements, a.id, {checked: false}  %>
+      <% end %>
+    </div>
+
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
