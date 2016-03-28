@@ -16,6 +16,7 @@
 
 //= require_tree .
 
+
 $(".js-vertical-tab-content").hide();
 $(".js-vertical-tab-content:first").show();
 
@@ -67,3 +68,5 @@ $(document).ready(function() {
     });
   });
 });
+
+//= require jquery.remotipart

@@ -16,7 +16,7 @@
   </table>
   <br>
 
-  <%= link_to 'New Assignment grade', new_assignment_grade_path, class: "add-user-button add-new", remote: true if session[:person_type] == "Teacher"%>
+  <%= link_to 'New Assignment grade', new_assignment_grade_path(id: assignment_grades.first.student.id), class: "add-user-button add-new", remote: true if session[:person_type] == "Teacher"%>
 
 <% else %>
 

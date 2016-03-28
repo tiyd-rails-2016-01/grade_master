@@ -1,4 +1,8 @@
 
+<h1>Hay, <%= @person.name %></h1>
+<p></p>
+
+
 <% if session[:person_type] == "Teacher" %>
   <div class="cards">
     <%= link_to users_path do %>
