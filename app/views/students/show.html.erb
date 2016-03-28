@@ -1,10 +1,16 @@
 <% if session[:person_type] == "Principal" %>
   <strong>Student's Name:</strong>
   <%= "#{@student.first_name} #{@student.last_name}" %>
+
   <br>
   <strong>Student's Parent(s):</strong>
-  <%= "#{@student.parents.first.first_name} #{@student.parents.first.last_name}" %>
+  <% if @student.parents.first == nil %>
+    <p> No parent listed in the database. </p>
+  <% else %>
+    <%= "#{@student.parents.first.first_name} #{@student.parents.first.last_name}" %>
+  <% end %>
   <br>
+
   <strong>Student's Grades:</strong>
   <table>
     <thead>

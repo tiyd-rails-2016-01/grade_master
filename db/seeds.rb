@@ -73,7 +73,7 @@ grade2 = AssignmentGrade.create(grade: 66, assignment_name: "Math Quiz", assignm
 grade3 = AssignmentGrade.create(grade: 100, assignment_name: "Book Report", assignment_date: Time.now, student_id: 2)
 grade3 = AssignmentGrade.create(grade: 100, assignment_name: "Math Quiz", assignment_date: Time.now, student_id: 2)
 
-supernintendo_chalmers = Principal.new(first_name: "SN", last_name: "Chalmers")
+supernintendo_chalmers = Principal.create(first_name: "SN", last_name: "Chalmers")
 User.create(email: 'chalmers@school.com', password: 'password', person_id: supernintendo_chalmers.id, person_type: "Principal")
 a1 = Achievement.create(name: "Perfect Attendance", description: "The first!", points: 100)
 a2 = Achievement.create(name: "Apple for Teacher", description: "The second!", points: 200)
