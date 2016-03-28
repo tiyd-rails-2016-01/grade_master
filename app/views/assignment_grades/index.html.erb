@@ -1,6 +1,14 @@
 
 <h1>Grades</h1>
 
+<% if session[:person_type] == "Parent" %>
+  <%= form_for @parent do |f| %>
+    <%= f.label "Would you like to receive weekly emails?" %>
+    <%= f.check_box :email_preferences %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+
 <% if @assignment_grades %>
   <table>
     <thead>
@@ -9,7 +17,9 @@
         <th>Assignment name </th>
         <th>Assignment date </th>
         <th>Student </th>
-        <th colspan="3"></th>
+  
+
+        <th colspan="4"></th>
       </tr>
     </thead>
 
@@ -20,6 +30,7 @@
           <td><%= assignment_grade.assignment_name %></td>
           <td><%= assignment_grade.assignment_date %></td>
           <td><%= "#{assignment_grade.student.first_name} #{assignment_grade.student.last_name}" if assignment_grade.student %></td>
+          <td><%= link_to 'Show PDF', assignment_grade.uploaded_file.url %></td>
           <td><%= link_to 'Show', assignment_grade %></td>
           <td><%= link_to 'Edit', edit_assignment_grade_path(assignment_grade) if session[:person_type] == "Teacher" %></td>
           <td><%= link_to 'Destroy', assignment_grade, method: :delete, data: { confirm: 'Are you sure?' } if session[:person_type] == "Teacher" %></td>
@@ -28,6 +39,8 @@
     </tbody>
   </table>
   <br>
+
+
 
   <%= link_to 'New Assignment grade', new_assignment_grade_path if session[:person_type] == "Teacher"%>
 

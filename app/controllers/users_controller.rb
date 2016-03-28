@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    if session[:person_type] == "Teacher"
+    if session[:person_type] == "Teacher" || session[:person_type] == "Principal"
       @users = User.all
     else
       @users = User.where(id: session[:user_id])
