@@ -1,4 +1,4 @@
-<h1>Welcome, <%= "#{@person.first_name} #{@person.last_name}"  %></h1>
+<h1>Welcome, <%= @person.name %></h1>
 <p></p>
 
 <% if session[:person_type] == "Teacher" %>
@@ -12,6 +12,9 @@
     <p>GPA: <%= @student.average_grade %></p>
     <p>Class Rank: <%= @student.class_rank %></p>
     <%= link_to "View Grades", grades_path %><br>
+  <% elsif %>
+    <p>There are currently no students registered to your account.</p>
+    <p>Please contact an administrator about adding your students.</p>
   <% end %>
 <% elsif session[:person_type] == "Principal" %>
   <%= link_to "Click here for stats", principals_path %>
