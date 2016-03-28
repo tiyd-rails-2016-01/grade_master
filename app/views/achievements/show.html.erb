@@ -1,0 +1,18 @@
+<p>
+  <strong>Achievement Name:</strong>
+  <%= @achievement.name %>
+</p>
+<p>
+  <strong>Achievement Description:</strong>
+  <%= @achievement.description %>
+</p>
+<p>
+  <strong>Achievement Points:</strong>
+  <%= @achievement.points %>
+</p>
+
+
+
+
+<%= link_to 'Edit', edit_achievement_path(@achievement) %> |
+<%= link_to 'Back', achievements_path %>

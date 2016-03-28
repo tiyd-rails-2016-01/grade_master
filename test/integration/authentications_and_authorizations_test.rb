@@ -15,7 +15,7 @@ class AuthenticationsAndAuthorizationsTest < ActionDispatch::IntegrationTest
 
     #make sure that I can see Teachers
     get teachers_path
-    assert_select "tbody tr", 2
+    assert_select "tbody tr", 3
 
     #Create teacher
     get new_teacher_path
@@ -24,7 +24,7 @@ class AuthenticationsAndAuthorizationsTest < ActionDispatch::IntegrationTest
 
     #Make sure that I see another teacher
     get teachers_path
-    assert_select "tbody tr", 3
+    assert_select "tbody tr", 4
 
     #log out
     delete logout_path

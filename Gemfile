@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
+ruby '2.3.0'
 
-
+gem 'puma'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
+gem "omniauth-github", '1.1.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -13,7 +15,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'delayed_job_active_record'
+gem 'daemons'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -28,6 +31,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+
+gem "paperclip", "~> 4.3"
+gem "aws-sdk", '~> 1.6'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -40,6 +47,8 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
 
 group :development do
@@ -50,4 +59,9 @@ group :development do
   gem 'spring'
 
   gem 'rails-footnotes', '~> 4.0'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
 end
