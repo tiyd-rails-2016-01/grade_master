@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160324190408) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "achievements", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -51,15 +48,7 @@ ActiveRecord::Schema.define(version: 20160324190408) do
     t.datetime "updated_at"
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
-
-  create_table "holidays", force: :cascade do |t|
-    t.string   "name"
-    t.date     "celebrated_on"
-    t.string   "origin"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
   create_table "parents", force: :cascade do |t|
     t.string   "first_name"
