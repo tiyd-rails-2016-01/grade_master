@@ -29,7 +29,7 @@
     <%= f.collection_select :teacher_id, Teacher.all, :id, :first_name, :prompt => "Select Teacher..." %>
   </p>
   <p class="submit">
-    <%= f.submit :id => "button-blue"%>
+    <%= f.submit "Add Student", :id => "button-blue"%>
   </p>
 <% end %>
 

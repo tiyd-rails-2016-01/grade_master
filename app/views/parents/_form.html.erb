@@ -24,7 +24,7 @@
           <%= f.collection_select :student_id, Student.all, :id, :first_name, :prompt => "Select Student..." %>
         </p>
         <p class="actions">
-          <%= f.submit :id => "button-blue" %>
+          <%= f.submit "Add Parent", :id => "button-blue" %>
         </p>
       <% end %>
     </div>
