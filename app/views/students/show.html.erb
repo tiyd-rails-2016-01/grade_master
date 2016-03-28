@@ -65,9 +65,9 @@
       <strong>Student's Achievements:</strong>
       <%= "Total points: #{@student.total_achievements} | Grade equivalent: #{@student.achievement_grade}"%>
     </p>
+    <% end %>
     <%= link_to 'Edit', edit_student_path(@student) %> |
     <%= link_to 'Back', students_path %>
     </div>
   </div>
 </div>
-<% end %>
