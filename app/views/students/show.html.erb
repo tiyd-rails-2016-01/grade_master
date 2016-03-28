@@ -7,7 +7,7 @@
   <% if @student.parents.first == nil %>
     <p> No parent listed in the database. </p>
   <% else %>
-    <%= "#{@student.parents.first.first_name} #{@student.parents.first.first_name}" %>
+    <%= "#{@student.parents.first.first_name} #{@student.parents.first.last_name}" %>
   <% end %>
   <br>
 
