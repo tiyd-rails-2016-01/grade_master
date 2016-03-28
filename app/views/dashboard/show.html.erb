@@ -7,9 +7,9 @@
   <%= link_to "Manage Students", students_path %><br>
   <%= link_to "Manage Parents", parents_path %><br>
   <%= link_to "Manage Grades", grades_path %><br>
-<% elsif session[:user_id] %>
-  <p>GPA: <%= @student.average_grade %></p>
-  <p>Class Rank: <%= @student.class_rank %></p>
+<% elsif session[:person_type] == "Student" || session[:person_type] == "Parent" %>
+    <p>GPA: <%= @student.average_grade %></p>
+    <p>Class Rank: <%= @student.class_rank %></p>
   <%= link_to "Manage Achievements", achievements_path %><br>
 <% elsif session[:person_type] == "Principal" %>
   <%= link_to "Click here for stats", principals_path %>
