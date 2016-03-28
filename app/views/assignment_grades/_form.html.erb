@@ -1,34 +1,40 @@
-<%= form_for @assignment_grade, html: { multipart: true }, remote: true do |f| %>
-  <% if @assignment_grade.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@assignment_grade.errors.count, "error") %> prohibited this assignment_grade from being saved:</h2>
-
-      <ul>
-      <% @assignment_grade.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+<div id="form-main">
+  <div id="form-div">
+    <div class="form" id="form1">
+      <%= form_for @assignment_grade, html: { multipart: true }, remote: true do |f| %>
+        <% if @assignment_grade.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@assignment_grade.errors.count, "error") %> prohibited this assignment_grade from being saved:</h2>
+            <ul>
+            <% @assignment_grade.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+          <p class="name">
+          <%= f.text_field :grade, class: "feedback-input", placeholder: "Grade" %>
+        </p>
+          <p class="name">
+          <%= f.text_field :assignment_name, class: "feedback-input", placeholder: "Assignment Name" %>
+        </p>
+          <p class="name">
+          <%= f.label :assignment_date %><br>
+          <%= f.date_field :assignment_date, class: "feedback-input", placeholder: "Assignment Date" %>
+        </p>
+          <p class="name">
+          <%= f.label :student %><br>
+          <%= f.collection_select :student_id, Student.all, :id, :first_name, prompt: "Select Student..." %>
+        </p>
+          <p class="actions">
+          <%= f.submit "Add Assignment", :id => "button-blue" %>
+        </p>
       <% end %>
-      </ul>
+      </div>
+      <div class="git-link" >
+        <%= link_to 'Back', assignment_grades_path %>
     </div>
-  <% end %>
 
-  <%= f.hidden_field :student_id, value: @student.id %>
-  <div class="field">
-    <%= f.label :grade %><br>
-    <%= f.text_field :grade %>
   </div>
-  <div class="field">
-    <%= f.label :assignment_name %><br>
-    <%= f.text_field :assignment_name %>
-  </div>
-  <div class="field">
-    <%= f.label :assignment_date %><br>
-    <%= f.date_field :assignment_date %>
-  </div>
-  <div>
-    <%= f.label :uploaded_file %>
-    <%= f.file_field :uploaded_file %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

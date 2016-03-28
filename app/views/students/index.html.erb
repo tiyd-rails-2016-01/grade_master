@@ -1,9 +1,16 @@
-<h1>Listing Students</h1>
-<table class="students">
+
+<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+
+<h1 class="table-name">Students</h1>
+
+<table class="students tables">
   <%= render partial: "students_table", locals: {students: @students} %>
+
 </table>
 <br>
-<%= link_to 'New Student', new_student_path, remote: true %>
+
+<div class="add-new"><%= link_to 'New Student', new_student_path, :class => "add-user-button", remote: true %></div>
+
 <div class="new_student">
 </div>
 <div class="manage_assignments">

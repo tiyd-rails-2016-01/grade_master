@@ -1,3 +1,7 @@
+<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+<div id="form-main">
+  <div id="form-div">
+    <div class="form" id="form1">
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -12,25 +16,26 @@
   <% end %>
 
 
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.email_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :github_user_name %><br>
-    <%= f.text_field :github_user_name %>
-  </div>
+  <p class="name">
+    <%= f.email_field :email, placeholder: "Email", class: "validate[required,custom[onlyLetter],length[0,100]] feedback-input"%>
+  </p>
+  <p class="name">
+    <%= f.password_field :password, placeholder: "Password", class: "validate[required,custom[onlyLetter],length[0,100]] feedback-input"%>
+  </p>
+  <p class="name">
+    <%= f.text_field :github_user_name, placeholder: "Github username", class: "feedback-input" %>
+  </p>
   <% if session[:person_type] == "Teacher" %>
-    <div class="field">
-      <%= f.label :associated_person %><br>
+    <p class="name">
       <%= f.grouped_collection_select :global_owner, [Teacher, Student, Parent], :for_select, :model_name, :to_global_id, :first_name, :prompt => "Select Person..." %>
-    </div>
+    </p>
   <% end %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <p class="submit">
+    <%= f.submit :id => "button-blue" %>
+  </p>
 <% end %>
+
+    <div class="git-link" >
+    <%= link_to 'Back', users_path %>
+  </div>
+</div>
