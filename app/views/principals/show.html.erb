@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @principal.email %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @principal.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @principal.last_name %>
+</p>
+
+<%= link_to 'Edit', edit_principal_path(@principal) %> |
+<%= link_to 'Back', principals_path %>

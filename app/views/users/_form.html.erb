@@ -22,13 +22,13 @@
   <p class="name">
     <%= f.password_field :password, placeholder: "Password", class: "validate[required,custom[onlyLetter],length[0,100]] feedback-input"%>
   </p>
+  <p class="name">
+    <%= f.text_field :github_user_name, placeholder: "Github username", class: "feedback-input" %>
+  </p>
   <% if session[:person_type] == "Teacher" %>
-
-
     <p class="name">
       <%= f.grouped_collection_select :global_owner, [Teacher, Student, Parent], :all, :model_name, :to_global_id, :first_name, :prompt => "Select Person..." %>
     </p>
-
   <% end %>
   <p class="submit">
     <%= f.submit :id => "button-blue" %>

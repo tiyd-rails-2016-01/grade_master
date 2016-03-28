@@ -1,11 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: MyString
-  last_name: MyString
+  first_name: kevin
+  last_name: harris
   student_id: 1
+  id: 2
 
 two:
+  first_name: mary
+  last_name: buttlarge
+  student_id: 1
+  id: 1
+
+three:
   first_name: MyString
   last_name: MyString
-  student_id: 1
+  student_id: 2

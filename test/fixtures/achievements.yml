@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  name: "One"
+  description: "The first!"
+  points: 400
+
+two:
+  id: 2
+  name: "Two"
+  description: "The second!"
+  points: 200

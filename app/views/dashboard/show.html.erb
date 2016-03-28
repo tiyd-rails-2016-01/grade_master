@@ -1,4 +1,3 @@
-
 <% if session[:person_type] == "Teacher" %>
   <div class="cards">
     <%= link_to users_path do %>
@@ -39,7 +38,6 @@
       </div>
     </div>
 
-
     <div class="card">
       <div class="card-image">
         <%= image_tag("/parents.jpg") %>
@@ -65,6 +63,24 @@
     </div>
   </div>
 
+<% elsif session[:person_type] == "Student" || session[:person_type] == "Parent" %>
+    <p>GPA: <%= @student.average_grade %></p>
+    <p>Class Rank: <%= @student.class_rank %></p>
+  <%= link_to "Manage Achievements", achievements_path %><br>
+
+<% elsif session[:person_type] == "Principal" %>
+  <%= link_to "Click here for stats", principals_path %>
+  <h3>Total Number of Teachers = <%= Principal.number_of_teachers %></h3>
+  <h3>Total Number of Students = <%= Principal.number_of_students %></h3>
+  <h3>Classroom Ratio =
+    <% if "#{Principal.number_of_teachers}" != 1 %>
+      <%= "#{Principal.number_of_teachers / Principal.number_of_teachers} : #{Principal.number_of_students.to_f / Principal.number_of_teachers}" %>
+    <% else %>
+      <%= "#{Principal.number_of_teachers} : #{Principal.number_of_students}" %>
+    <% end %>
+  </h3>
+  <h3>Number of Assignments Completed This Year = <%= "#{Principal.completed_assignments}" %> </h3>
+
 <% elsif session[:user_id] %>
-  <%= link_to "View Grades", grades_path %><br>  
+  <%= link_to "View Grades", grades_path %><br>
 <% end %>

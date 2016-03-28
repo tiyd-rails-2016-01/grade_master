@@ -7,3 +7,8 @@ one:
 two:
   first_name: MyString
   last_name: MyString
+
+teacher_one:
+  first_name: "Mason"
+  last_name: "Matthews"
+  id: 1  
