@@ -1,4 +1,4 @@
-<%= form_for @assignment_grade, html: { multipart: true } do |f| %>
+<%= form_for @assignment_grade, html: { multipart: true }, remote: true do |f| %>
   <% if @assignment_grade.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@assignment_grade.errors.count, "error") %> prohibited this assignment_grade from being saved:</h2>
@@ -23,10 +23,10 @@
     <%= f.label :assignment_date %><br>
     <%= f.date_field :assignment_date %>
   </div>
-  <div class="field">
-    <%= f.label :student %><br>
-    <%= f.collection_select :student_id, Student.all, :id, :first_name, prompt: "Select Student..." %>
-  </div>
+    <div class="field">
+      <%= f.label :student %><br>
+      <%= f.collection_select :student_id, Student.all, :id, :first_name, prompt: "Select Student..." %>
+    </div>
   <div>
     <%= f.label :uploaded_file %>
     <%= f.file_field :uploaded_file %>
