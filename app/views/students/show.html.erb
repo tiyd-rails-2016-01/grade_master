@@ -1,73 +1,99 @@
 <div id="form-main">
   <div id="form-div">
     <div class="form" id="form1">
-
-    <% if session[:person_type] == "Principal" %>
-      <strong>Student's Name:</strong>
-      <%= "#{@student.first_name} #{@student.last_name}" %>
-      <br>
-      <strong>Student's Parent(s):</strong>
-      <%= "#{@student.parents.first.first_name} #{@student.parents.first.last_name}" %>
-      <br>
-      <strong>Student's Grades:</strong>
-      <table>
-        <thead>
-          <tr>
-            <th>Grade  </th>
-            <th>Assignment name </th>
-            <th>Assignment date </th>
-            <th>Student </th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @student.assignment_grades.each do |assignment_grade| %>
+      <% if session[:person_type] == "Principal" %>
+        <strong>Student's Name:</strong>
+        <%= "#{@student.first_name} #{@student.last_name}" %>
+        <br>
+        <strong>Student's Parent(s):</strong>
+        <% if @student.parents.first == nil %>
+          <p> No parent listed in the database. </p>
+        <% else %>
+          <%= "#{@student.parents.first.first_name} #{@student.parents.first.last_name}" %>
+        <% end %>
+        <br>
+        <strong>Student's Grades:</strong>
+        <table>
+          <thead>
             <tr>
-              <td><%= assignment_grade.grade %></td>
-              <td><%= assignment_grade.assignment_name %></td>
-              <td><%= assignment_grade.assignment_date %></td>
+              <th>Grade  </th>
+              <th>Assignment name </th>
+              <th>Assignment date </th>
+              <th>Student </th>
+              <th colspan="3"></th>
             </tr>
+          </thead>
           <% end %>
-        </tbody>
-      </table>
+        <% if session[:person_type] == "Principal" %>
+          <strong>Student's Name:</strong>
+          <%= "#{@student.first_name} #{@student.last_name}" %>
+          <br>
+          <strong>Student's Parent(s):</strong>
+          <%= "#{@student.parents.first.first_name} #{@student.parents.first.last_name}" %>
+          <br>
+          <strong>Student's Grades:</strong>
+          <table>
+            <thead>
+              <tr>
+                <th>Grade  </th>
+                <th>Assignment name </th>
+                <th>Assignment date </th>
+                <th>Student </th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
 
-      <br>
+            <tbody>
+              <% @student.assignment_grades.each do |assignment_grade| %>
+                <tr>
+                  <td><%= assignment_grade.grade %></td>
+                  <td><%= assignment_grade.assignment_name %></td>
+                  <td><%= assignment_grade.assignment_date %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <br>
+          <% elsif session[:person_type] == "Teacher" %>
+          <p>
+            <strong>Student First Name:</strong>
+            <%= @student.first_name %>
+          </p>
+          <p>
+            <strong>Student Last Name:</strong>
+            <%= @student.last_name %>
+          </p>
+          <p>
+            <strong>Student's Teacher:</strong>
+            <%= "#{@student.teacher.first_name} #{@student.teacher.last_name}" if @student.teacher%>
+          </p>
+          <p>
+            <strong>Student's Achievements:</strong>
+              <% @student.achievements.each do |ac| %>
+                <p>  <%= ac.name %>: <%= ac.points %> </p>
+              <% end %>
+          </p>
 
-    <% elsif session[:person_type] == "Teacher" %>
-    <p>
-      <strong>Student First Name:</strong>
-      <%= @student.first_name %>
-    </p>
-    <p>
-      <strong>Student Last Name:</strong>
-      <%= @student.last_name %>
-    </p>
-    <p>
-      <strong>Student's Teacher:</strong>
-      <%= "#{@student.teacher.first_name} #{@student.teacher.last_name}" if @student.teacher%>
-    </p>
 
-    <% else %>
-    <p>
-      <strong>Student First Name:</strong>
-      <%= @student.first_name %>
-    </p>
-    <p>
-      <strong>Student Last Name:</strong>
-      <%= @student.last_name %>
-    </p>
-    <p>
-      <strong>Student's Teacher:</strong>
-      <%= "#{@student.teacher.first_name} #{@student.teacher.last_name}" if @student.teacher%>
-    </p>
-    <p>
-      <strong>Student's Achievements:</strong>
-      <%= "Total points: #{@student.total_achievements} | Grade equivalent: #{@student.achievement_grade}"%>
-    </p>
-    <% end %>
-    <%= link_to 'Edit', edit_student_path(@student) %> |
-    <%= link_to 'Back', students_path %>
+          <% else %>
+          <p>
+            <strong>Student First Name:</strong>
+            <%= @student.first_name %>
+          </p>
+          <p>
+            <strong>Student Last Name:</strong>
+            <%= @student.last_name %>
+          </p>
+          <p>
+            <strong>Student's Teacher:</strong>
+            <%= "#{@student.teacher.first_name} #{@student.teacher.last_name}" if @student.teacher%>
+          </p>
+          <p>
+            <strong>Student's Achievements:</strong>
+            <%= "Total points: #{@student.total_achievements} | Grade equivalent: #{@student.achievement_grade}"%>
+          </p>
+        <% end %>
+      <%= link_to 'Back', students_path %>
     </div>
   </div>
 </div>

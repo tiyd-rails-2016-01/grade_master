@@ -1,10 +1,9 @@
+
 <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
 <div id="form-main">
   <div id="form-div">
     <div class="form" id="form1">
-
-
-    <%= form_for(@student) do |f| %>
+    <%= form_for(@student, remote: true) do |f| %>
       <% if @student.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
@@ -22,6 +21,7 @@
       </p>
       <p class="name">
 
+
         <%= f.text_field :last_name,  class: "feedback-input", placeholder: "Last Name" %>
       </p>
       <p class="name">
@@ -30,14 +30,9 @@
 
       </p>
       <p class="submit">
-        <%= f.submit "Add Student", :id => "button-blue"%>
+        <%= f.submit "Update Student", :id => "button-blue"%>
       </p>
 
     <% end %>
-
-    <div class="git-link" >
-      <%= link_to 'Back', users_path %> |
-      <%= link_to "Manage achievements", student_achievements_path(id: @student.id) %>
-    </div>
   </div>
 </div>

@@ -1,0 +1,10 @@
+<tr>
+  <td><%= student.first_name %></td>
+  <td><%= student.last_name %></td>
+  <td><%= "#{student.teacher.first_name} #{student.teacher.last_name}" if student.teacher %></td>
+  <td><%= button_to 'Show', student, :method => :get  %></td>
+  <td><%= button_to 'Edit', edit_student_path(student), :method => :get, remote: true %></td>
+  <td><%= button_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' }, remote: true  %></td>
+  <td><%= button_to 'Manage assignments', student_grades_path(id: student.id), :method => :get, remote: true %></td>
+  <td><%= button_to "Manage achievements", student_achievements_path(id: student.id), :method => :get, remote: true %></td>
+</tr>

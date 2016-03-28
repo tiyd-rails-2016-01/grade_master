@@ -1,0 +1,12 @@
+<br>
+<% if session[:person_type] == "Parent" %>
+  <%= form_for @parent do |f| %>
+    <%= f.label "Would you like to receive weekly emails?" %>
+    <%= f.check_box :email_preferences %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+
+<div class="assignment-grades-conditional">
+  <%= render partial: 'assignment_grades_conditional', locals: {assignment_grades: @assignment_grades} %>
+</div>

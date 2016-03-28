@@ -1,3 +1,4 @@
+
 <% if session[:person_type] == "Teacher" %>
   <div class="cards">
     <%= link_to users_path do %>
@@ -64,11 +65,13 @@
   </div>
 
 <% elsif session[:person_type] == "Student" || session[:person_type] == "Parent" %>
+
   <div class="one-card">
     <div class="card">
       <div class="card-image">
         <%= image_tag("/grades.jpg") %>
       </div>
+      <% if @student %>
       <div class="card-header">
         <h4><%= @student.first_name %> <%= @student.last_name %></h4>
       </div>
@@ -76,9 +79,14 @@
         <p>GPA: <%= @student.average_grade %></p>
         <p>Class Rank: <%= @student.class_rank %></p>
         <p><%= link_to "View Grades", grades_path %></p>
-      </div>
-    </div>
-  </div>
+
+  <% elsif %>
+    <p>There are currently no students registered to your account.</p>
+    <p>Please contact an administrator about adding your students.</p>
+  <% end %>
+</div>
+</div>
+</div>
 
 <% elsif session[:person_type] == "Principal" %>
 

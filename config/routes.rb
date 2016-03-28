@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "authentications#create"
 
   get 'student_achievements' => 'students#edit_achievements'
+  get 'student_grades' => 'students#grades'
 
 
   resources :authentications
