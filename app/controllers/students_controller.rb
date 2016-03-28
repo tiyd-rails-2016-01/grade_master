@@ -83,6 +83,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:first_name, :last_name, :teacher_id, :achievements)
+      params.require(:student).permit(:first_name, :last_name, :teacher_id, achievements_attributes: [:id])
     end
 end
