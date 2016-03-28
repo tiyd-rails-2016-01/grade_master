@@ -1,8 +1,11 @@
+<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
 
-<h1>Grades</h1>
+<h1 class="table-name">Assignment Grades</h1>
+
+
 
 <% if @assignment_grades %>
-  <table>
+  <table class="tables">
     <thead>
       <tr>
         <th>Grade  </th>
@@ -29,7 +32,7 @@
   </table>
   <br>
 
-  <%= link_to 'New Assignment grade', new_assignment_grade_path if session[:person_type] == "Teacher"%>
+<div class="add-new">  <%= link_to 'New Assignment grade', new_assignment_grade_path if session[:person_type] == "Teacher"%> </div>
 
 <% else %>
 
