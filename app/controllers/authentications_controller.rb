@@ -20,7 +20,7 @@ class AuthenticationsController < ApplicationController
         redirect_to root_url, notice: "Signed in!"
       else
        redirect_to login_url, notice: "Sorry, we know you have an account but we don't know who you are. Please contact your system administrator to get added to the system."
-     end
+      end
     else
       flash.now[:notice] = "You need to log in before you can do anything!"
       render "new"
