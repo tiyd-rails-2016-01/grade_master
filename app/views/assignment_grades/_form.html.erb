@@ -25,7 +25,7 @@
   </div>
     <div class="field">
       <%= f.label :student %><br>
-      <%= f.collection_select :student_id, Student.all, :id, :first_name, prompt: "Select Student..." %>
+      <%= f.hidden_field :student_id, value: @student.id %>
     </div>
   <div>
     <%= f.label :uploaded_file %>
