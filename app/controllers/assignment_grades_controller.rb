@@ -76,7 +76,7 @@ class AssignmentGradesController < ApplicationController
       if session[:person_type] == "Principal"
         AssignmentGrade.all
       elsif session[:person_type] == "Teacher"
-        Student.find_by(teacher_id: User.find(session[:user_id])).assignment_grades
+        Student.find_by(teacher_id: User.find_by(session[:user_id]).person_id).assignment_grades
       elsif session[:person_type] == "Student"
         Student.find(User.find(session[:user_id]).person_id).assignment_grades
       else
