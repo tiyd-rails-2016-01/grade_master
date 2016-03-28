@@ -9,13 +9,11 @@ class Parent < ActiveRecord::Base
   end
 
   def average_grade
-    assignment_grades.average(:grade)
+    student && student.average_grade
   end
 
   def class_rank
-    students = Student.all
-    better_students = students.select {|s| s.average_grade > self.average_grade}
-    rank = better_students.count + 1
+    student && student.class_rank
   end
 
 end
