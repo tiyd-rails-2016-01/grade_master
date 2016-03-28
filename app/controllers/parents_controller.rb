@@ -1,7 +1,7 @@
 class ParentsController < ApplicationController
   before_action :set_parent, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user
-  before_action :authenticate_teacher, only: [:edit, :destroy]
+  before_action :authenticate_teacher, only: [:index, :new, :create, :edit, :update, :destroy]
 
 
   # GET /parents
