@@ -16,7 +16,11 @@ class AuthenticationsController < ApplicationController
     if user && user_auth
       session[:user_id] = user.id
       session[:person_type] = user.person_type
-      redirect_to root_url, :notice => "Signed in!"
+      if user.person_type
+        redirect_to root_url, notice: "Signed in!"
+      else
+       redirect_to login_url, notice: "Sorry, we know you have an account but we don't know who you are. Please contact your system administrator to get added to the system."
+     end
     else
       flash.now[:notice] = "You need to log in before you can do anything!"
       render "new"
