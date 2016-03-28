@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :student_id, value: @student.id %>
   <div class="field">
     <%= f.label :grade %><br>
     <%= f.text_field :grade %>
@@ -23,10 +24,6 @@
     <%= f.label :assignment_date %><br>
     <%= f.date_field :assignment_date %>
   </div>
-    <div class="field">
-      <%= f.label :student %><br>
-      <%= f.hidden_field :student_id, value: @student.id %>
-    </div>
   <div>
     <%= f.label :uploaded_file %>
     <%= f.file_field :uploaded_file %>
