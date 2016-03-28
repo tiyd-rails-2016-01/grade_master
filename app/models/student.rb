@@ -1,5 +1,4 @@
 
-require 'byebug'
 require 'constants.rb'
 
 class Student < ActiveRecord::Base
