@@ -27,7 +27,7 @@
   <% if session[:person_type] == "Teacher" %>
     <div class="field">
       <%= f.label :associated_person %><br>
-      <%= f.grouped_collection_select :global_owner, [Teacher, Student, Parent], :all, :model_name, :to_global_id, :first_name, :prompt => "Select Person..." %>
+      <%= f.grouped_collection_select :global_owner, [Teacher, Student, Parent], "for_select(#{@user.person_id}, #{@user.person_type})", :model_name, :to_global_id, :first_name, :prompt => "Select Person..." %>
     </div>
   <% end %>
   <div class="actions">

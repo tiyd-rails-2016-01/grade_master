@@ -16,4 +16,12 @@ class Parent < ActiveRecord::Base
     student && student.class_rank
   end
 
+  def self.for_select(person_id, person_type)
+    if person_type == "Parent"
+      Parent.joins("LEFT JOIN 'users' ON parents.id = users.person_id and users.person_type = 'Parent'").where("users.id IS NULL OR users.id = #{person_id}")
+    else
+      Parent.joins("LEFT JOIN 'users' ON parents.id = users.person_id and users.person_type = 'Parent'").where("users.id IS NULL")
+    end
+  end
+
 end
