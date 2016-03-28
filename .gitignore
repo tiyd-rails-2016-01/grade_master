@@ -19,5 +19,5 @@
 # Ignore all public files
 /public/system
 
-# Ignore byebug history
+# Ignore byebug
 .byebug_history
