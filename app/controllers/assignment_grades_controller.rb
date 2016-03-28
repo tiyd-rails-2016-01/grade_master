@@ -19,6 +19,7 @@ class AssignmentGradesController < ApplicationController
   # GET /assignment_grades/new
   def new
     authenticate_teacher
+    @student = Student.find(params[:id])
     @assignment_grade = AssignmentGrade.new
   end
 
