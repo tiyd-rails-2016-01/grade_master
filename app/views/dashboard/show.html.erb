@@ -1,4 +1,4 @@
-<h1>Welcome, <%= "#{session[:person_type]}" %></h1>
+<h1>Welcome, <%= "#{@person.first_name} #{@person.last_name}"  %></h1>
 <p></p>
 
 <% if session[:person_type] == "Teacher" %>
@@ -6,11 +6,11 @@
   <%= link_to "Manage Teachers", teachers_path %><br>
   <%= link_to "Manage Students", students_path %><br>
   <%= link_to "Manage Parents", parents_path %><br>
-  <%= link_to "Manage Grades", grades_path %><br>
 <% elsif session[:person_type] == "Student" || session[:person_type] == "Parent" %>
-    <p>GPA: <%= @student.average_grade %></p>
-    <p>Class Rank: <%= @student.class_rank %></p>
-  <%= link_to "Manage Achievements", achievements_path %><br>
+  <h3> Summary for <%= @student.first_name %> </h3>
+  <p>GPA: <%= @student.average_grade %></p>
+  <p>Class Rank: <%= @student.class_rank %></p>
+  <%= link_to "View Grades", grades_path %><br>
 <% elsif session[:person_type] == "Principal" %>
   <%= link_to "Click here for stats", principals_path %>
   <h3>Total Number of Teachers = <%= Principal.number_of_teachers %></h3>
