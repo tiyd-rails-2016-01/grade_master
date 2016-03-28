@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+ruby '2.3.0'
 
 gem 'puma'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -40,9 +40,6 @@ gem "aws-sdk", '~> 1.6'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-group :production do
-  gem 'pg'
-end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
