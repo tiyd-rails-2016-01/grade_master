@@ -1,11 +1,21 @@
-<p>
-  <strong>Teacher First Name:</strong>
-  <%= @teacher.first_name %>
-</p>
-<p>
-  <strong>Teacher Last Name:</strong>
-  <%= @teacher.last_name %>
-</p>
+<div id="form-main">
+  <div id="form-div">
+    <div class="form" id="form1">
 
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Back', teachers_path %>
+
+
+
+      <p>
+        <strong>Teacher First Name:</strong>
+        <%= @teacher.first_name %>
+      </p>
+      <p>
+        <strong>Teacher Last Name:</strong>
+        <%= @teacher.last_name %>
+      </p>
+
+      <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+      <%= link_to 'Back', teachers_path %>
+    </div>
+  </div>
+</div>

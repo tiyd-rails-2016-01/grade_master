@@ -1,30 +1,38 @@
-<%= form_for(@student, remote: true) do |f| %>
-  <% if @student.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
 
-      <ul>
-      <% @student.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+<div id="form-main">
+  <div id="form-div">
+    <div class="form" id="form1">
+    <%= form_for(@student, remote: true) do |f| %>
+      <% if @student.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+          <ul>
+          <% @student.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :teacher %><br>
-    <%= f.collection_select :teacher_id, Teacher.all, :id, :first_name, :prompt => "Select Teacher..." %>
-  </div>
+      <p class="name">
+        <%= f.text_field :first_name,  class: "feedback-input", placeholder: "First Name" %>
+      </p>
+      <p class="name">
 
-  <div class="actions">
-    <%= f.submit %>
+
+        <%= f.text_field :last_name,  class: "feedback-input", placeholder: "Last Name" %>
+      </p>
+      <p class="name">
+        <%= f.label :teacher %><br>
+        <%= f.collection_select :teacher_id, Teacher.all, :id, :first_name, :prompt => "Select Teacher..." %>
+
+      </p>
+      <p class="submit">
+        <%= f.submit "Update Student", :id => "button-blue"%>
+      </p>
+
+    <% end %>
   </div>
-<% end %>
+</div>

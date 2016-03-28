@@ -1,6 +1,9 @@
-<h1>Listing Parents</h1>
+<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
 
-<table>
+<h1 class="table-name">Parents</h1>
+
+
+<table class="tables">
   <thead>
     <tr>
       <th>First Name</th>
@@ -16,9 +19,9 @@
         <td><%= parent.first_name %></td>
         <td><%= parent.last_name %></td>
         <td><%= "#{parent.student.first_name} #{parent.student.last_name}" if parent.student %></td>
-        <td><%= link_to 'Show', parent %></td>
-        <td><%= link_to 'Edit', edit_parent_path(parent) %></td>
-        <td><%= link_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Show', parent, :method => :get %></td>
+        <td><%= button_to 'Edit', edit_parent_path(parent), :method => :get %></td>
+        <td><%= button_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Parent', new_parent_path %>
+<div class="add-new"><%= link_to 'New Parent', new_parent_path, :class => "add-user-button" %></div>
