@@ -5,11 +5,13 @@ one:
   first_name: MyString
   last_name: MyString
   teacher_id: 1
+  id: 2
 
 two:
   first_name: MyString
   last_name: MyString
   teacher_id: 1
+  id: 1
 
 marcia:
   first_name: "Marcia"
