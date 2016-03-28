@@ -68,10 +68,10 @@ User.create(email: 'parent@school.com', password: 'password', person_id: 1, pers
 parent2 = Parent.create(first_name: "Chief", last_name: "Wiggum", student_id: 1)
 User.create(email: 'parent@school.com', password: 'password', person_id: 2, person_type: "Parent")
 
-grade1 = AssignmentGrade.create(grade: 88, assignment_name: "Book Report", assignment_date: Time.now, student_id: 1)
-grade2 = AssignmentGrade.create(grade: 66, assignment_name: "Math Quiz", assignment_date: Time.now, student_id: 1)
-grade3 = AssignmentGrade.create(grade: 100, assignment_name: "Book Report", assignment_date: Time.now, student_id: 2)
-grade3 = AssignmentGrade.create(grade: 100, assignment_name: "Math Quiz", assignment_date: Time.now, student_id: 2)
+grade1 = AssignmentGrade.create(grade: 88, assignment_name: "Book Report", assignment_date: 2016-01-04, student_id: 1)
+grade2 = AssignmentGrade.create(grade: 66, assignment_name: "Math Quiz", assignment_date: 2016-02-05, student_id: 1)
+grade3 = AssignmentGrade.create(grade: 100, assignment_name: "Book Report", assignment_date: 2016-03-01, student_id: 2)
+grade3 = AssignmentGrade.create(grade: 100, assignment_name: "Math Quiz", assignment_date: 2016-01-07, student_id: 2)
 
 supernintendo_chalmers = Principal.create(first_name: "SN", last_name: "Chalmers")
 User.create(email: 'chalmers@school.com', password: 'password', person_id: supernintendo_chalmers.id, person_type: "Principal")
