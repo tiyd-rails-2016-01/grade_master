@@ -1,6 +1,6 @@
-This application is a very basic app that allows teachers to create, store, and update student grades. Teachers can create multiple students and parents and (optionally) allow students and parents to log in to view grades.
+GradeMaster is a basic app that allows teachers to create, store, and update student grades. Teachers can create multiple students and parents and (optionally) allow students and parents to log in to view grades.
 
-Please contact the developer for more information!
+Explore GradeMaster on <a href="http://grademaster.herokuapp.com/">Heroku</a>
 
 New Features!
 
