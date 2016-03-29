@@ -42,9 +42,10 @@ class Student < ActiveRecord::Base
 
   def self.for_select(person_id, person_type)
     if person_type == "Student"
-      Student.joins("LEFT JOIN 'users' ON students.id = users.person_id and users.person_type = 'Student'").where("users.id IS NULL OR users.id = #{person_id}")
+      s = Student.joins("LEFT JOIN 'users' ON students.id = users.person_id and users.person_type = 'Student'").where("users.id IS NULL OR students.id = #{person_id}")
     else
-      Student.joins("LEFT JOIN 'users' ON students.id = users.person_id and users.person_type = 'Student'").where("users.id IS NULL")
+      s = Student.joins("LEFT JOIN 'users' ON students.id = users.person_id and users.person_type = 'Student'").where("users.id IS NULL")
     end
+    s.collect {|temp| [temp.first_name, temp.id]}
   end
 end

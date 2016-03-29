@@ -18,10 +18,11 @@ class Parent < ActiveRecord::Base
 
   def self.for_select(person_id, person_type)
     if person_type == "Parent"
-      Parent.joins("LEFT JOIN 'users' ON parents.id = users.person_id and users.person_type = 'Parent'").where("users.id IS NULL OR users.id = #{person_id}")
+      p = Parent.joins("LEFT JOIN 'users' ON parents.id = users.person_id and users.person_type = 'Parent'").where("users.id IS NULL OR users.id = #{person_id}")
     else
-      Parent.joins("LEFT JOIN 'users' ON parents.id = users.person_id and users.person_type = 'Parent'").where("users.id IS NULL")
+      p = Parent.joins("LEFT JOIN 'users' ON parents.id = users.person_id and users.person_type = 'Parent'").where("users.id IS NULL")
     end
+    p.collect {|temp| [temp.first_name, temp.id]}
   end
 
 end

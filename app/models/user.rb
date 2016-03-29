@@ -1,13 +1,14 @@
 class User < ActiveRecord::Base
   has_secure_password
   belongs_to :person, polymorphic: true
+  validates :person_id, uniqueness: true
 
   def name
     if self.person
       "#{self.person.first_name} #{self.person.last_name}"
     else
       self.email
-    end    
+    end
   end
 
   def global_owner
