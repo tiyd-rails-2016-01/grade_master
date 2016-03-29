@@ -24,8 +24,7 @@
           <%= f.date_field :assignment_date, class: "feedback-input", placeholder: "Assignment Date" %>
         </p>
           <p class="name">
-          <%= f.label :student %><br>
-          <%= f.collection_select :student_id, Student.all, :id, :first_name, prompt: "Select Student..." %>
+          <%= f.hidden_field :student_id, value: @student.id%>
         </p>
           <p class="actions">
           <%= f.submit "Add Assignment", :id => "button-blue" %>
