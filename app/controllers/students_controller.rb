@@ -5,11 +5,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    if session[:person_type] == "Teacher"
-      @students = Student.where(teacher_id: params[:id])
-    elsif session[:person_type] == "Principal"
-      @students = Student.all
-    end
+    @students = Student.all
   end
 
   # GET /students/1
