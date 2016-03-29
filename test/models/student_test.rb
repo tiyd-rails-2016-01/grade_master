@@ -39,4 +39,8 @@ class StudentTest < ActiveSupport::TestCase
     assert_equal :A, students(:anjana).achievement_grade
   end
 
+  test "can get list of students not assigned to users" do
+    p Student.for_select
+    assert_equal 3, Student.for_select.length
+  end
 end

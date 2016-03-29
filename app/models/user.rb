@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
       "#{self.person.first_name} #{self.person.last_name}"
     else
       self.email
-    end    
+    end
   end
 
   def global_owner
