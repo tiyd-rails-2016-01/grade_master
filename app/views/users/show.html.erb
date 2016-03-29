@@ -1,17 +1,27 @@
-
-<p>
-  <strong>User Email:</strong>
-  <%= @user.email %>
-</p>
-<p>
-  <strong>Associated Person:</strong>
-  <%= @user.person_id %>
-  <%= @user.person_type %>
-</p>
+<div id="form-main">
+  <div id="form-div">
+    <div class="form" id="form1">
 
 
 
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      <p>
+        <strong>User Email:</strong>
+        <%= @user.email %>
+      </p>
+      <p>
+        <strong>Associated Person:</strong>
+        <%= @user.person_id %>
+        <%= @user.person_type %>
+      </p>
+
+
+
+
+
+      <%= link_to 'Edit', edit_user_path(@user) %> |
+      <%= link_to 'Back', users_path %>
+      </div>
+  </div>
+</div>

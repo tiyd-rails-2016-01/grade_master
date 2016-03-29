@@ -1,5 +1,5 @@
 <% if assignment_grades %>
-  <table>
+  <table class= "tables">
     <thead>
       <tr>
         <th>Grade  </th>
@@ -16,11 +16,11 @@
   </table>
   <br>
 
-  <%= link_to 'New Assignment grade', new_assignment_grade_path(id: assignment_grades.first.student.id), remote: true if session[:person_type] == "Teacher"%>
+  <%= link_to 'New Assignment grade', new_assignment_grade_path(id: assignment_grades.first.student.id), class: "add-user-button add-new", remote: true if session[:person_type] == "Teacher"%>
 
 <% else %>
 
   <p>Sorry. There are no assignments for this user. Either your teacher needs to create some, or your permissions need to be changed. Contact your teacher for more details.</p>
 
-  <%= link_to 'New Assignment grade', new_assignment_grade_path, remote: true if session[:person_type] == "Teacher"%>
+  <%= link_to 'New Assignment grade', new_assignment_grade_path, class: "add-user-button add-new", remote: true if session[:person_type] == "Teacher"%>
 <% end %>

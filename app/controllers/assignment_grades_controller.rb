@@ -26,6 +26,7 @@ class AssignmentGradesController < ApplicationController
   # GET /assignment_grades/1/edit
   def edit
     authenticate_teacher
+    @student = @assignment_grade.student
   end
 
   # POST /assignment_grades

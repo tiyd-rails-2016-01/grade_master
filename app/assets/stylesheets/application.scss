@@ -1,0 +1,961 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+ */
+@import "bourbon";
+@import "neat";
+
+body {
+font-family: $helvetica;
+margin: 0;
+}
+
+h1 {
+  font-family: $helvetica;
+  font-size: golden-ratio(14px,  1);
+}
+
+
+
+
+#booked {
+  @include button(shiny, #ff0000);
+}
+
+
+.one-card {
+  width: 400px;
+}
+
+.cards {
+  @include display(flex);
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
+  padding-top: 1em;
+}
+.cards2 {
+  @include display(flex);
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
+  padding-top: 10em;
+}
+
+.card {
+  $base-border-color: gainsboro !default;
+  $base-border-radius: 3px !default;
+  $base-background-color: white !default;
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $dark-gray: #333 !default;
+  $base-font-color: $dark-gray !default;
+  $card-border-color: $base-border-color;
+  $card-border: 1px solid $card-border-color;
+  $card-background: lighten($card-border-color, 10%);
+  $card-header-background: $card-background;
+  $card-margin: 1em;
+  $card-image-hover-opacity: 0.7;
+  $card-image-hover-color: #F8F2B4;
+
+  @include flex-basis(15em);
+  @include flex-grow(1);
+  @include transition (all 0.2s ease-in-out);
+  background-color: $card-background;
+  border-radius: $base-border-radius;
+  border: $card-border;
+  box-shadow: 0 2px 4px darken($base-background-color, 10%);
+  cursor: pointer;
+  margin: 0 $card-margin $base-spacing $card-margin;
+  position: relative;
+
+
+  .card-image {
+    overflow: hidden;
+    height: 150px;
+    max-height: 150px;
+    background-color: $card-image-hover-color;
+
+    img {
+      @include transition (all 0.2s ease-in-out);
+      border-top-left-radius: $base-border-radius;
+      border-top-right-radius: $base-border-radius;
+      width: 100%;
+      opacity: 1;
+    }
+  }
+
+  .card-header {
+    @include transition (all 0.2s ease-in-out);
+    background-color: $card-header-background;
+    border-bottom: $card-border;
+    border-radius: $base-border-radius $base-border-radius 0 0;
+    font-weight: bold;
+    line-height: 1.5em;
+    padding: ($base-spacing / 3) ($base-spacing / 2);
+  }
+
+  .card-copy {
+    font-size: 0.9em;
+    line-height: 1.5em;
+    padding: ($base-spacing / 2) ($base-spacing / 2);
+
+    p {
+      margin: 0 0 ($base-spacing / 2);
+    }
+  }
+
+  &:focus,
+  &:hover {
+    cursor: pointer;
+
+    img {
+      opacity: $card-image-hover-opacity;
+    }
+  }
+
+  &:active {
+    background-color: $card-background;
+
+    .card-header {
+      background-color: $card-background;
+    }
+  }
+}
+
+
+.device-background {
+  $base-border-radius: 3px !default;
+  $action-color: #477DCA !default;
+  $large-screen: em(860) !default;
+  $device-padding-vertical: 4em;
+  $device-padding-horizontal: 0em;
+  $device-screen-width: 14em;
+  $device-screen-height: 20em;
+  $device-background: darken(gray, 40%);
+  $device-backside-background: darken($device-background, 10%);
+  $device-text-color: white;
+  $device-background-top: #162C4C;
+  $device-background-bottom: #0A120D;
+  $gradient-angle: 10deg;
+  $device-image: 'https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png';
+  $device-screen-image: 'http://www.showmyiq.com/2012/November/tumblr_lnnj38hjbo1qccjaxo1_400.png';
+
+  @include background(url($device-image), linear-gradient($gradient-angle, $device-background-bottom, $device-background-top), no-repeat $device-background-top scroll);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 15em;
+  width: 100%;
+
+  .device-text {
+    padding: 1em;
+
+    @include media($large-screen) {
+      float: left;
+      max-width: 50%;
+      padding: 3em;
+    }
+
+    h4 {
+      border-bottom: 1px solid transparentize($device-text-color, 0.7);
+      color: $device-text-color;
+      font-size: 1.5em;
+      margin: 0 0 0.5em 0;
+      padding-bottom: 0.5em;
+    }
+
+    p {
+      color: $device-text-color;
+      line-height: 1.5em;
+      margin-bottom: 1.5em;
+    }
+  }
+
+  .device {
+    display: none;
+    position: relative;
+    @include media($large-screen) {
+      @include transform(
+        perspective(800px)
+        translateX(0px)
+        translateY(-100px)
+        translateZ(50px)
+        rotateX(0deg)
+        rotateY(-20deg)
+        rotateZ(-0deg));
+
+      display: block;
+      float: right;
+      margin-bottom: -12em;
+      padding: $device-padding-vertical 0;
+      width: $device-screen-width + (2 * $device-padding-horizontal);
+      z-index: 99999;
+
+      .screen {
+        @include size($device-screen-width $device-screen-height);
+        background-image: url($device-screen-image);
+        background-size: cover;
+        border-radius: 0.2em;
+        margin: auto;
+      }
+    }
+  }
+}
+
+
+.footer-2 {
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $medium-screen: em(640) !default;
+  $large-screen: em(860) !default;
+  $footer-background: desaturate(darken($action-color, 20%), 30%);
+  $footer-color: white;
+  $footer-link-color: transparentize($footer-color, 0.6);
+  $footer-disclaimer-color: transparentize($footer-color, 0.6);
+
+  background: $footer-background;
+  padding: $base-spacing;
+  width: 100%;
+  display: inline-block;
+
+  .footer-logo {
+    margin-right: 1em;
+    margin-bottom: 1em;
+
+    @include media($large-screen) {
+      float: left;
+      margin-bottom: 0;
+    }
+  }
+
+  .footer-logo img {
+    height: 1.6em;
+  }
+
+  ul {
+    line-height: 1.5em;
+    margin: 0 0 1em 0;
+    padding: 0;
+
+    @include media($large-screen) {
+      float: left;
+      line-height: 1.8em;
+      margin-left: 1em;
+      margin-bottom: 0;
+    }
+  }
+
+  ul li {
+    list-style: none;
+    padding-right: 1em;
+
+    @include media($large-screen) {
+      display: inline;
+      text-align: left;
+    }
+  }
+
+  ul li a {
+    color: $footer-link-color;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: transparentize($footer-color, 0);
+    }
+  }
+
+  .footer-secondary-links {
+    @include media($large-screen) {
+      float: right;
+    }
+
+    li {
+      font-size: 0.8em;
+    }
+
+    ul.footer-social {
+      margin: 1em 0 0 0;
+
+      @include media($large-screen) {
+        float: right;
+        margin-top: 0;
+      }
+
+      li {
+        font-size: 1em;
+        float: left;
+        line-height: 0;
+        margin: 0;
+        padding-right: 0.7em;
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+
+      img {
+        height: 1.6em;
+        opacity: 0.7;
+        padding: 1px;
+
+        &:focus,
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.vertical-tabs-container {
+  $base-border-color: gainsboro !default;
+  $base-border-radius: 3px !default;
+  $base-background-color: white !default;
+  $base-line-height: 1.5em !default;
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $dark-gray: #333 !default;
+  $medium-screen: em(640) !default;
+  $base-font-color: $dark-gray !default;
+  $tab-border-color: $base-border-color;
+  $tab-border: 1px solid $tab-border-color;
+  $tab-border-radius: $base-border-radius;
+  $tab-content-background: lighten($tab-border-color, 10%);
+  $tab-active-color: $tab-content-background;
+  $tab-inactive-color: $base-background-color;
+  $vertical-tabs-height: em(300);
+  $vertical-tab-mode: $medium-screen;
+
+  @include clearfix;
+  border-radius: $tab-border-radius;
+  border: $tab-border;
+  margin-bottom: $base-spacing;
+  overflow: hidden;
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    color: $action-color;
+    text-decoration: none;
+  }
+
+  .vertical-tabs {
+    display: none;
+
+    @include media($vertical-tab-mode) {
+      background-color: $tab-inactive-color;
+      display: inline;
+      float: left;
+      height: $vertical-tabs-height;
+      width: 20%;
+    }
+  }
+
+  .vertical-tab {
+    @include media($vertical-tab-mode) {
+      border-bottom: $tab-border;
+      display: block;
+      font-weight: bold;
+      margin-right: -1px;
+      padding: ($base-spacing / 2) ($gutter / 2);
+
+      &.is-active {
+        background-color: $tab-content-background;
+        margin-right: -1px;
+      }
+    }
+  }
+
+  a.vertical-tab-accordion-heading,
+  a.vertical-tab {
+    color: $dark-gray;
+  }
+
+  .vertical-tab:focus {
+    outline: none;
+  }
+
+  .vertical-tab-content-container {
+    display: block;
+    margin: 0 auto;
+
+    & a:focus {
+      outline: none;
+    }
+
+    @include media($vertical-tab-mode) {
+      @include size(80% $vertical-tabs-height);
+      background-color: $tab-content-background;
+      display: inline-block;
+    }
+  }
+
+  .vertical-tab-content {
+    background-color: $tab-content-background;
+    padding: $base-spacing $gutter;
+
+    p {
+      color: $base-font-color;
+      line-height: $base-line-height;
+    }
+
+    @include media($vertical-tab-mode) {
+      border: none;
+      display: none;
+    }
+  }
+
+  .vertical-tab-accordion-heading {
+    background-color: $tab-inactive-color;
+    border-top: $tab-border;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    padding: $base-spacing / 2 $gutter / 2;
+
+    &:focus,
+    &:hover {
+      color: $action-color;
+    }
+
+    &:first-child {
+      border-top: none;
+    }
+
+    &.is-active {
+      background: $tab-active-color;
+      border-bottom: none;
+    }
+
+    @include media($vertical-tab-mode) {
+      display: none;
+    }
+  }
+}
+
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+html{    background:url(http://hdwallpapershoot.com/wp-content/uploads/2015/05/Solid-Backgrounds-1.jpg) no-repeat;
+  background-size: 100% 100%;
+}
+
+#feedback-page{
+	text-align:center;
+}
+
+#form-main{
+	width:100%;
+
+	float:left;
+	padding-top:0px;
+}
+
+#form-div {
+	background-color:rgba(72,72,72,0.4);
+	padding-left:35px;
+	padding-right:35px;
+	padding-top:35px;
+	padding-bottom:50px;
+	width: 450px;
+	float: left;
+	left: 50%;
+	position: relative;
+  margin-top:5px;
+	margin-left: -260px;
+  margin-bottom: 7%;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+.feedback-input {
+	color:#3c3c3c;
+	font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+	font-size: 18px;
+	border-radius: 0;
+	line-height: 22px;
+	background-color: #fbfbfb;
+	padding: 13px 13px 13px 54px;
+	margin-bottom: 10px;
+	width:100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+  border: 3px solid rgba(0,0,0,0);
+}
+
+.feedback-input:focus{
+	background: #fff;
+	box-shadow: 0;
+	border: 3px solid #3498db;
+	color: #3498db;
+	outline: none;
+  padding: 13px 13px 13px 54px;
+}
+
+.focused{
+	color:#30aed6;
+	border:#30aed6 solid 3px;
+}
+
+/* Icons ---------------------------------- */
+#name{
+	background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#name:focus{
+	background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+	background-size: 30px 30px;
+	background-position: 8px 5px;
+  background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#email{
+	background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#email:focus{
+	background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+	background-size: 30px 30px;
+  background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#password{
+	background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQs4dEq0R93Le3nG0rTFN4h23kKXW9f02k_tqw1zEhpVEodRVz_ZTCuGA);
+	background-size: 30px 30px;
+  background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#comment{
+	background-image: url(http://rexkirby.com/kirbyandson/images/comment.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    line-height: 150%;
+    resize:vertical;
+}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+	background-color:white;
+}
+
+#button-blue{
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	float:left;
+	width: 100%;
+	border: #fbfbfb solid 4px;
+	cursor:pointer;
+	background-color: #3498db;
+	color:white;
+	font-size:24px;
+	padding-top:22px;
+	padding-bottom:22px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+  margin-top:-4px;
+  margin-bottom: 20px;
+  font-weight:700;
+}
+
+#button-blue:hover{
+	background-color: rgba(0,0,0,0);
+	color: #0493bd;
+}
+
+.submit:hover {
+	color: #3498db;
+}
+
+.ease {
+	width: 0px;
+	height: 74px;
+	background-color: #fbfbfb;
+	-webkit-transition: .3s ease;
+	-moz-transition: .3s ease;
+	-o-transition: .3s ease;
+	-ms-transition: .3s ease;
+	transition: .3s ease;
+}
+
+.submit:hover .ease{
+  width:100%;
+  background-color:white;
+}
+
+@media only screen and (max-width: 580px) {
+	#form-div{
+		left: 3%;
+		margin-right: 3%;
+		width: 88%;
+		margin-left: 0;
+		padding-left: 3%;
+		padding-right: 3%;
+	}
+}
+
+.Three-Dee{
+text-align: center;
+font-family: Bangers ;
+line-height: 1em;
+color: brown;
+font-size: 50px;
+text-shadow:0px 0px 0 rgb(231,231,231),1px 1px 0 rgb(216,216,216),2px 2px 0 rgb(202,202,202),3px 3px 0 rgb(187,187,187),4px 4px 0 rgb(173,173,173),5px 5px 0 rgb(158,158,158), 6px 6px 0 rgb(144,144,144),7px 7px 6px rgba(0,0,0,0.6),7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);}
+
+
+.Three-Dee-Container{
+  padding-left:5px;
+  padding-right:5px;
+  padding-top:5px;
+  padding-bottom:5px;
+  width: 450px;
+  float: left;
+  left: 50%;
+  position: relative;
+  margin-top:5px;
+  margin-left: -260px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+.Three-Dee-single{
+text-align: center;
+font-family: Bangers ;
+line-height: 1em;
+color: brown;
+font-size: 50px;
+text-shadow:0px 0px 0 rgb(231,231,231),1px 1px 0 rgb(216,216,216),2px 2px 0 rgb(202,202,202),3px 3px 0 rgb(187,187,187),4px 4px 0 rgb(173,173,173),5px 5px 0 rgb(158,158,158), 6px 6px 0 rgb(144,144,144),7px 7px 6px rgba(0,0,0,0.6),7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);}
+
+
+.Three-Dee-Container-single{
+  padding-left:5px;
+  padding-right:5px;
+  padding-top:5px;
+  padding-bottom:5px;
+  width: 450px;
+  float: left;
+  left: 50%;
+  position: absolute;
+  display: block;
+  margin-top:5px;
+  margin-left: -260px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+#title-container {
+  display: block;
+
+}
+
+
+
+
+
+
+
+
+.git-link {
+  text-align: center;
+  margin-top: 20px;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+.git-image {
+  width:30%;
+  height:30%;
+}
+
+.tables {
+  $base-border-color: gainsboro !default;
+  $base-border-radius: 3px !default;
+  $base-line-height: 1.5em !default;
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $dark-gray: #333 !default;
+  $light-gray: #DDD !default;
+  $medium-screen: em(640) !default;
+  $large-screen: em(860) !default;
+  $base-font-color: $dark-gray !default;
+  $table-border-color: $base-border-color;
+  $table-border: 0px solid $table-border-color;
+  $table-background: lighten($table-border-color, 12%);
+  $table-header-background: lighten($table-background, 10%);
+  $table-hover-background: darken($table-background, 20%);
+  $table-stripe-background: darken($table-background, 2%);
+  $table-stripe-background-hover: darken($table-stripe-background, 5%);
+  $table-padding: 0.75em 1em;
+
+  border-collapse: separate;
+  border-left: 0px;
+  border-radius: $base-border-radius;
+  border-spacing: 0;
+  border: $table-border;
+  width: 40%;
+  margin: 0 auto;
+
+  tbody {
+    background-color: $table-background;
+
+    tr:hover > td, tr:hover > th {
+      background-color: $table-hover-background;
+    }
+    tr:nth-child(even) {
+      background-color: $table-stripe-background;
+      &:hover > td {
+        background-color: $table-stripe-background-hover;
+      }
+    }
+  }
+
+  thead:first-of-type {
+    tr:first-child > th:first-child {
+      border-top-left-radius: $base-border-radius;
+    }
+
+    tr:first-child > th:last-child {
+      border-top-right-radius: $base-border-radius;
+    }
+  }
+
+  tbody:last-child {
+    tr:last-child > td:first-child {
+      border-bottom-left-radius: $base-border-radius;
+    }
+
+    tr:last-child > td:last-child {
+      border-bottom-right-radius: $base-border-radius;
+    }
+  }
+
+  thead {
+    th {
+      background-color: $table-header-background;
+      border-bottom: 0px;
+      border-left: 1px solid $table-border-color;
+      padding: $table-padding;
+      text-align: left;
+
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+
+  tbody {
+    background-color: $table-background;
+
+    td {
+      border-bottom: 0px;
+      border-left: 1px solid $table-border-color;
+      border-top: 1px solid $table-border-color;
+      padding: $table-padding;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      button {
+        display: inline-block;
+        font-size: 0.7em;
+        line-height: $base-line-height;
+        margin-bottom: 0.3em;
+        margin-right: 0.5em;
+        outline: none;
+        padding: 0.3em 1em;
+        width: 100%;
+
+        @include media($medium-screen) {
+          margin-bottom: 0;
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+.table-name {
+  text-align: center;
+  font-family: Bangers ;
+  line-height: 1em;
+  color: #46525f;
+  font-size: 50px;
+  text-shadow:0px 0px 0 rgb(231,231,231),1px 1px 0 rgb(216,216,216),2px 2px 0 rgb(202,202,202),3px 3px 0 rgb(187,187,187),4px 4px 0 rgb(173,173,173),5px 5px 0 rgb(158,158,158), 6px 6px 0 rgb(144,144,144),7px 7px 6px rgba(0,0,0,0.6),7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);}
+
+.add-new {
+  text-align: center;
+}
+
+.add-user-button {
+  @include button(pill, #46525f);
+}
+
+
+.dropdown {
+  $base-border-color: gainsboro !default;
+  $base-border-radius: 3px !default;
+  $base-line-height: 1.5em !default;
+  $base-background-color: white !default;
+  $dark-gray: #333 !default;
+  $large-screen: em(860) !default;
+  $base-font-color: $dark-gray !default;
+  $dropdown-color: $base-font-color;
+  $dropdown-description-color: lighten($dropdown-color, 40%);
+  $dropdown-border: 1px solid silver;
+  $dropdown-background: $base-background-color;
+  $dropdown-background-hover: darken($dropdown-background, 3%);
+  $dropdown-inner-border: 1px solid silver;
+  $dropdown-height: 40px;
+  $dropdown-padding: 1em;
+  $dropdown-distance-from-menu: 50px;
+  $dropdown-arrow-top-distance: 0;
+
+  line-height: $base-line-height;
+
+  .dropdown-container {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+  }
+
+  .dropdown-description {
+    background: $dropdown-background;
+    border-bottom-left-radius: $base-border-radius;
+    border-bottom: $dropdown-border;
+    border-left: $dropdown-border;
+    border-top-left-radius: $base-border-radius;
+    border-top: $dropdown-border;
+    color: $dropdown-description-color;
+    float: left;
+    font-size: 0.7em;
+    line-height: $dropdown-height;
+    margin: 0;
+    padding: 0 ($dropdown-padding / 2) 0 $dropdown-padding;
+
+    @include media($large-screen) {
+      font-size: 1em;
+    }
+  }
+
+  .dropdown-button {
+    background: $dropdown-background;
+    border-bottom-right-radius: $base-border-radius;
+    border-top-right-radius: $base-border-radius;
+    border-top: $dropdown-border;
+    border-right: $dropdown-border;
+    border-bottom: $dropdown-border;
+    cursor: pointer;
+    float: right;
+    font-size: 0.7em;
+    line-height: $dropdown-height;
+    margin: 0;
+    padding: 0 ($dropdown-padding * 2.5) 0 ($dropdown-padding / 2);
+    position: relative;
+
+    @include media($large-screen) {
+      font-size: 1em;
+      padding: 0 ($dropdown-padding * 2.5) 0 ($dropdown-padding / 2);
+    }
+  }
+
+  .dropdown-button:hover {
+    background-color: $dropdown-background-hover;
+  }
+
+  .dropdown-button:after {
+    color: $base-font-color;
+    content: "\25BE";
+    display: block;
+    position: absolute;
+    right: $dropdown-padding;
+    top: $dropdown-arrow-top-distance;
+  }
+
+  .dropdown-menu {
+    @include transition (all 0.2s ease-in-out);
+    background: $dropdown-background;
+    border-radius: $base-border-radius;
+    border: $dropdown-border;
+    box-shadow: 0 2px 2px transparentize(black, 0.8);
+    color: $dropdown-color;
+    cursor: pointer;
+    display: none;
+    margin: 0;
+    overflow: show;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: $dropdown-distance-from-menu;
+    width: 228px;
+    z-index: 99999;
+
+    &:before {
+      @include position(absolute, 0 1em 0 0);
+      color: $dropdown-background;
+      content: "\25b2";
+      font-size: 1.4em;
+      pointer-events: none;
+      text-shadow: 0 -2px 2px transparentize(black, 0.7);
+      top: -0.7em;
+    }
+  }
+
+  .dropdown-menu li {
+    border-bottom: $dropdown-inner-border;
+    color: $dropdown-color;
+    list-style: none;
+    padding: $dropdown-padding / 2;
+  }
+
+  .dropdown-menu li:hover {
+    background: $dropdown-background-hover;
+  }
+
+  .dropdown-menu li:first-child {
+    border-top-left-radius: $base-border-radius;
+    border-top-right-radius: $base-border-radius;
+  }
+
+  .dropdown-menu li:last-child {
+    border: none;
+    border-bottom-left-radius: $base-border-radius;
+    border-bottom-right-radius: $base-border-radius;
+  }
+
+  .show-menu {
+    display: block;
+  }
+}
+// Inspired by code by www.HUSAMUI.com
+
+.dark-bg-text {
+  color: white;
+}

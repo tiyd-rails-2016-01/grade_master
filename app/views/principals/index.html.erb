@@ -1,12 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Staff List</h1>
-  <% @teachers.each do |t| %>
-    <h3><%= t.first_name %> <%=  t.last_name %></h3>
-        <div id=“student”>  <% @students.where("teacher_id = ?", t.id).each do |s| %>
-          <%= link_to "#{s.first_name} #{s.last_name}", student_path(s) %> <br>
-        <% end %>
-        </div>
-  <% end %>
+<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+<div id="title-container-single"
+  <div class="Three-Dee-Container-single">
+    <h1 class="Three-Dee">Staff List</h1>
+  </div>
+</div>
 
-  
+
+  <div class="cards2">
+    <% @teachers.each do |t| %>
+      <div class="card">
+        <div class="card-image">
+        <%= image_tag("/users.png") %>
+        </div>
+        <div class="card-header">
+          <h3><%= t.first_name %> <%=  t.last_name %></h3>
+        </div>
+        <div class="card-copy">
+          <% @students.where("teacher_id = ?", t.id).each do |s| %>
+            <%= link_to "#{s.first_name} #{s.last_name}", student_path(s) %> <br>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
