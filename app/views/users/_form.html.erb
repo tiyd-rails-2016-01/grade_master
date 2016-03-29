@@ -27,7 +27,11 @@
   </p>
   <% if session[:person_type] == "Teacher" %>
     <p class="name">
-      <%= f.grouped_collection_select :global_owner, [Teacher, Student, Parent], :all, :model_name, :to_global_id, :first_name, :prompt => "Select Person..." %>
+      <% options_for = [] %>
+      <% options_for << ["Teacher", Teacher.for_select(@user.person_id, @user.person_type)] %>
+      <% options_for << ["Student", Student.for_select(@user.person_id, @user.person_type)] %>
+      <% options_for << ["Parent", Parent.for_select(@user.person_id, @user.person_type)] %>
+      <%= f.select :global_owner, grouped_options_for_select(options_for)  %>
     </p>
   <% end %>
   <p class="submit">
