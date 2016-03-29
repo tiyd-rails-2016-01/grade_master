@@ -54,10 +54,10 @@ class AssignmentGradesController < ApplicationController
   # DELETE /assignment_grades/1
   # DELETE /assignment_grades/1.json
   def destroy
-    student = Student.find(@assignment_grade.student_id)
+    @student = Student.find(@assignment_grade.student_id)
     @assignment_grade.destroy
-    if student.reload.assignment_grades.count > 0
-      @assignment_grades = student.reload.assignment_grades
+    if @student.reload.assignment_grades.count > 0
+      @assignment_grades = @student.reload.assignment_grades
     else
       @assignment_grades = nil
     end
