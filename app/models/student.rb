@@ -46,6 +46,6 @@ class Student < ActiveRecord::Base
     else
       s = Student.joins("LEFT JOIN 'users' ON students.id = users.person_id and users.person_type = 'Student'").where("users.id IS NULL")
     end
-    s.collect {|temp| [temp.first_name, temp.id]}
+    s.collect {|temp| [temp.first_name, temp.to_global_id]}
   end
 end

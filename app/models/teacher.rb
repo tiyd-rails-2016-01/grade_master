@@ -9,7 +9,7 @@ class Teacher < ActiveRecord::Base
     else
       t = Teacher.joins("LEFT JOIN 'users' ON teachers.id = users.person_id and users.person_type = 'Teacher'").where("users.id IS NULL")
     end
-    t.collect {|temp| [temp.first_name, temp.id]}
+    t.collect {|temp| [temp.first_name, temp.to_global_id]}
   end
 
 end

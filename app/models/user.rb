@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
   belongs_to :person, polymorphic: true
-  validates :person_id, uniqueness: true
 
   def name
     if self.person

@@ -22,7 +22,7 @@ class Parent < ActiveRecord::Base
     else
       p = Parent.joins("LEFT JOIN 'users' ON parents.id = users.person_id and users.person_type = 'Parent'").where("users.id IS NULL")
     end
-    p.collect {|temp| [temp.first_name, temp.id]}
+    p.collect {|temp| [temp.first_name, temp.to_global_id]}
   end
 
 end
