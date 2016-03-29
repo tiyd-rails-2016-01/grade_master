@@ -9,7 +9,7 @@
         <td><%= user.email %></td>
         <td><%= user.person_id %></td>
         <td><%= user.person_type %></td>
-        <td><%= "#{user.person_type.constantize.find(user.person_id).first_name} #{user.person_type.constantize.find(user.person_id).last_name}" if user.person_id%></td>
+        <td><%= user.person ? "#{user.name}" : link_to("Add user", new_user_path) %></td>
         <td><%= button_to 'Show', user, :method => :get %></td>
         <td><%= button_to 'Edit', edit_user_path(user), :method => :get %></td>
         <td><%= button_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
