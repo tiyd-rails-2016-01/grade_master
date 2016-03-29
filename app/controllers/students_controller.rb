@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update, :grades, :destroy]
   before_action :authenticate_principal_or_teacher
 
   # GET /students
@@ -14,7 +14,6 @@ class StudentsController < ApplicationController
   end
 
   def grades
-    @student = Student.find(params[:id])
     if @student.assignment_grades.count > 0
       @assignment_grades = @student.assignment_grades.all
     end

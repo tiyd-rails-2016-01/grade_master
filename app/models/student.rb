@@ -40,4 +40,12 @@ class Student < ActiveRecord::Base
     return :F
   end
 
+  def self.for_select(person_id, person_type)
+    if person_type == "Student"
+      s = Student.joins("LEFT JOIN 'users' ON students.id = users.person_id and users.person_type = 'Student'").where("users.id IS NULL OR students.id = #{person_id}")
+    else
+      s = Student.joins("LEFT JOIN 'users' ON students.id = users.person_id and users.person_type = 'Student'").where("users.id IS NULL")
+    end
+    s.collect {|temp| [temp.first_name, temp.to_global_id]}
+  end
 end
