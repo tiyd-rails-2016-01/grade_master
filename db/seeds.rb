@@ -63,10 +63,10 @@ teacher = Teacher.create(first_name: "Damian", last_name: "House")
 User.create(email: 'damianhouse@example.com', password: 'monkey', github_user_name: 'damianhouse', person_id: teacher.id, person_type: "Teacher")
 
 parent1 = Parent.create(first_name: "Marge", last_name: "Simpson", student_id: 2)
-User.create(email: 'parent@school.com', password: 'password', person_id: 1, person_type: "Parent")
+User.create(email: 'parent@school.com', password: 'password', person_id: parent1.id, person_type: "Parent")
 
 parent2 = Parent.create(first_name: "Chief", last_name: "Wiggum", student_id: 1)
-User.create(email: 'parent@school.com', password: 'password', person_id: 2, person_type: "Parent")
+User.create(email: 'parent@school.com', password: 'password', person_id: parent2.id, person_type: "Parent")
 
 grade1 = AssignmentGrade.create(grade: 88, assignment_name: "Book Report", assignment_date: "2016-01-04", student_id: 1)
 grade2 = AssignmentGrade.create(grade: 66, assignment_name: "Math Quiz", assignment_date: "2016-02-05", student_id: 1)
